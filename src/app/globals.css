@@ -110,3 +110,22 @@ a {
   width: 100vw;
   background-color: green;
 }
+
+.QuizzesParent{
+  display: flex;
+  flex-direction: row;
+  background-color: blue;
+  justify-content: center;
+}
+
+.Quiz{
+  width: 200px;
+  height: 100px;
+  padding: 5px;
+  margin: 5px;
+  background-color: red;
+}
+
+.QuizDetails{
+  background-color: orange;
+}
