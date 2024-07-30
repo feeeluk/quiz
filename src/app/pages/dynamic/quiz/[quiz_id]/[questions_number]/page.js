@@ -1,11 +1,12 @@
 import { connect } from "@/app/utils/connect"
-//import { useState, useEffect } from "react"
+import { Question } from "@/app/components/Question"
 
 export default async function Quiz({params}){
 
     const db = connect()
-    //const [score, setScore] = useState(0)
-    //const [question, setQuestion] = useState(0)
+    const quiz = params.quiz_id
+    const question = params.questions_number
+    const score = 0;
 
     const quizDetails = (await db.query(`SELECT quizzes.quiz_name, categories.category_name, questions.questions_number, questions.questions_question, questions.questions_value, questions.questions_answer_1, questions.questions_answer_2, questions.questions_answer_3, questions.questions_answer_4, questions.questions_final_answer
                                     FROM quizzes
@@ -14,32 +15,17 @@ export default async function Quiz({params}){
                                     JOIN questions
                                     ON questions.questions_quiz_id = quizzes.quiz_id
                                     WHERE quiz_id = $1 AND questions_number = $2
-                                    ORDER BY questions.questions_id DESC`, [params.quiz_id, params.questions_number])).rows
+                                    ORDER BY questions.questions_id DESC`, [quiz, question])).rows[0]
+
+
 
     return(
-        <>
-            
+        <>        
             <div className="QuizDetails">
-                {/* {console.log("quiz ID: " + params.quiz_id)} */}
-                {/* {console.log(quizDetails)} */}
                 
-                {quizDetails.map( (question) => {
-                    return(
-                        <div key={question.questions_number}>
-                            <h1>{question.quiz_name}</h1>
-                            <h1>Question {question.questions_number}/15</h1>
-                            <h1>Question: {question.questions_question}</h1>
-                            <h1>Value: {question.questions_value}</h1>
-                            <h1>Answer 1: <button>{question.questions_answer_1}</button></h1>
-                            <h1>Answer 2: <button>{question.questions_answer_2}</button></h1>
-                            <h1>Answer 3: <button>{question.questions_answer_3}</button></h1>
-                            <h1>Answer 4: <button>{question.questions_answer_4}</button></h1>
-                            <h1>Answer: {question.questions_final_answer}</h1>
-                        </div>
-                    )})}
-                
+                <Question name={quizDetails.quiz_name} category={quizDetails.category_name} question_number={question} value={quizDetails.questions_value} question={quizDetails.questions_question} answer_1={quizDetails.questions_answer_1} answer_2={quizDetails.questions_answer_2} answer_3={quizDetails.questions_answer_3} answer_4={quizDetails.questions_answer_4} score={score} final_answer={quizDetails.questions_final_answer} />
+                   
             </div>
         </>
-        
     )
 }
