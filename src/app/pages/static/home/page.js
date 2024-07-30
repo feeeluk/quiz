@@ -18,7 +18,7 @@ export default async function Home(){
                 {quizzes.map( (quiz) => {
                     return(
                         <div key={quiz.quiz_id}>
-                            <Link href={`/pages/dynamic/quiz/${quiz.quiz_id}/1`}>
+                            <Link href={`/pages/dynamic/quiz/${quiz.quiz_id}/1?score=0`}>
                                 <Quiz key={quiz.quiz_id} quiz_name={quiz.quiz_name} quiz_category={quiz.category_name}/>
                             </Link>
                         </div>

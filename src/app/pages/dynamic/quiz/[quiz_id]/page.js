@@ -1,12 +1,9 @@
 import { connect } from "@/app/utils/connect"
 import Link from "next/link"
-//import { useState, useEffect } from "react"
 
 export default async function Quiz({params}){
 
     const db = connect()
-    //const [score, setScore] = useState(0)
-    //const [question, setQuestion] = useState(0)
 
     const quizDetails = (await db.query(`SELECT quizzes.quiz_name, categories.category_name, questions.questions_number, questions.questions_question, questions.questions_value, questions.questions_answer_1, questions.questions_answer_2, questions.questions_answer_3, questions.questions_answer_4, questions.questions_final_answer
                                     FROM quizzes
@@ -20,12 +17,12 @@ export default async function Quiz({params}){
     return(
         <>
 
-            <Link href={`/pages/dynamic/quiz/${params.quiz_id}/1?quiz=${params.quiz_id}`}>Start quiz</Link>
+            <Link href={`/pages/dynamic/quiz/${params.quiz_id}/1?quiz=${params.quiz_id}`}>
+                Start quiz
+            </Link>
             
             <div className="QuizDetails">
-                {/* {console.log("quiz ID: " + params.quiz_id)} */}
-                {/* {console.log(quizDetails)} */}
-                
+
                 {quizDetails.map( (question) => {
                     return(
                         <div key={question.questions_number}>
