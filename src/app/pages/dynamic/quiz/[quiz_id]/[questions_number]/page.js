@@ -1,5 +1,4 @@
 import { connect } from "@/app/utils/connect"
-import Link from "next/link"
 //import { useState, useEffect } from "react"
 
 export default async function Quiz({params}){
@@ -14,13 +13,11 @@ export default async function Quiz({params}){
                                     ON quizzes.quiz_category_id = categories.category_id
                                     JOIN questions
                                     ON questions.questions_quiz_id = quizzes.quiz_id
-                                    WHERE quiz_id = $1
-                                    ORDER BY questions.questions_id DESC`, [params.quiz_id])).rows
+                                    WHERE quiz_id = $1 AND questions_number = $2
+                                    ORDER BY questions.questions_id DESC`, [params.quiz_id, params.questions_number])).rows
 
     return(
         <>
-
-            <Link href={`/pages/dynamic/quiz/${params.quiz_id}/1?quiz=${params.quiz_id}`}>Start quiz</Link>
             
             <div className="QuizDetails">
                 {/* {console.log("quiz ID: " + params.quiz_id)} */}
