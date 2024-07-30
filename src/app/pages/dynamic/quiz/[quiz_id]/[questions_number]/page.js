@@ -23,7 +23,7 @@ export default async function Quiz({params}){
         <>        
             <div className="QuizDetails">
                 
-                <Question name={quizDetails.quiz_name} category={quizDetails.category_name} question_number={question} value={quizDetails.questions_value} question={quizDetails.questions_question} answer_1={quizDetails.questions_answer_1} answer_2={quizDetails.questions_answer_2} answer_3={quizDetails.questions_answer_3} answer_4={quizDetails.questions_answer_4} score={score} final_answer={quizDetails.questions_final_answer} />
+                <Question quizID={quiz} name={quizDetails.quiz_name} category={quizDetails.category_name} question_number={question} value={quizDetails.questions_value} question={quizDetails.questions_question} answer_1={quizDetails.questions_answer_1} answer_2={quizDetails.questions_answer_2} answer_3={quizDetails.questions_answer_3} answer_4={quizDetails.questions_answer_4} score={score} final_answer={quizDetails.questions_final_answer} />
                    
             </div>
         </>
