@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
+import { SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 
 export function Navbar(){
     return(
@@ -12,7 +13,12 @@ export function Navbar(){
             |
             <Link href="/pages/static/leaderboard"> Leaderboard </Link>
             |
-            <Link href="/pages/static/home"> Profile / Sign in</Link>
+            <SignedOut>
+              <SignInButton mode="modal"/>
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
         </div>
     )
 }
