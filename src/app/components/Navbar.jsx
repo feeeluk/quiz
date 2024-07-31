@@ -10,7 +10,7 @@ export function Navbar(){
             |
             <Link href="/pages/static/about"> About </Link>
             |
-            <Link href="/pages/static/home"> Leaderboard </Link>
+            <Link href="/pages/static/leaderboard"> Leaderboard </Link>
             |
             <Link href="/pages/static/home"> Profile </Link>
         </div>

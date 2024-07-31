@@ -11,14 +11,14 @@ export function Question({quizID, name, category, question_number, value, questi
     function handleAnswer(quizID, question_number, answer, final_answer, value, score){
         
         if(question_number === "15" && answer === final_answer){
-            router.push("/pages/static/win")
+            router.push("/pages/static/won")
         }
         else if(answer === final_answer){
             score = parseInt(score, 10) + value
             router.push(`/pages/dynamic/quiz/${quizID}/${parseInt(question_number,10) + 1}?quiz=${quizID}&score=${score}`)
         }
         else{
-            router.push("/pages/static/lose")
+            router.push("/pages/static/lost")
         }
     }
 
