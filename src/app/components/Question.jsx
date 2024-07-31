@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation"
 import Image from "next/image"
+import { UpdateLeaderboard } from "./UpdateLeaderboard"
 
 export function Question({quizID, name, category, question_number, value, question, answer_1, answer_2, answer_3, answer_4, final_answer, score, image}){
 
@@ -11,6 +12,7 @@ export function Question({quizID, name, category, question_number, value, questi
     function handleAnswer(quizID, question_number, answer, final_answer, value, score){
         
         if(question_number === "15" && answer === final_answer){
+            
             router.push("/pages/static/won")
         }
         else if(answer === final_answer){
@@ -18,6 +20,8 @@ export function Question({quizID, name, category, question_number, value, questi
             router.push(`/pages/dynamic/quiz/${quizID}/${parseInt(question_number,10) + 1}?quiz=${quizID}&score=${score}`)
         }
         else{
+            
+            UpdateLeaderboard("Test", 1, 3, 0, 0 )
             router.push("/pages/static/lost")
         }
     }

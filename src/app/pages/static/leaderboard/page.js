@@ -4,7 +4,7 @@ export default async function Leaderboard(){
 
     const db = connect()
 
-    const leaderboard = (await db.query(`SELECT users.user_name AS user, quizzes.quiz_name AS quiz, categories.category_name AS type, statuses.status_name AS status, user_quizzes.user_quiz_score AS score, user_quizzes.user_quiz_progress AS progress
+    const leaderboard = (await db.query(`SELECT users.user_id AS user, quizzes.quiz_name AS quiz, categories.category_name AS type, statuses.status_name AS status, user_quizzes.user_quiz_score AS score, user_quizzes.user_quiz_progress AS progress
                                         FROM user_quizzes
 
                                         JOIN statuses
