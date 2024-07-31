@@ -22,6 +22,11 @@ export function Question({quizID, name, category, question_number, value, questi
         }
     }
 
+    function handleQuit(){
+        router.push("/pages/static/quit")
+
+    }
+
     return(
         <>
             <h1>(Name: {name}) (Category: {category}) (Question number: {question_number})</h1>
@@ -34,6 +39,8 @@ export function Question({quizID, name, category, question_number, value, questi
             <h1>Answer 4: <button onClick={() => handleAnswer(quizID, question_number, answer_4, final_answer, value, score)}>{answer_4}</button></h1>
             <h1>Final answer: {final_answer}</h1>
             <h1>Score: {score}</h1>
+
+            <button onClick={() => handleQuit()}>QUIT</button>
         </>     
     )
 }
