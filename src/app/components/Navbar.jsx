@@ -3,6 +3,7 @@ import Link from "next/link"
 import { SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 
 export function Navbar(){
+
     return(
         
         <div className="Navbar">
@@ -19,6 +20,7 @@ export function Navbar(){
             <SignedIn>
               <UserButton />
             </SignedIn>
-        </div>
+        
+        </div>        
     )
 }

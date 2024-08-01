@@ -8,7 +8,7 @@ export default async function Quiz({params, searchParams}){
     const question = params.question_number
     const score = searchParams.score
 
-    const quizDetails = (await db.query(`SELECT quizzes.quiz_name, categories.category_name, questions.question_number, questions.question_question, questions.question_value, questions.question_answer_1, questions.question_answer_2, questions.question_answer_3, questions.question_answer_4, questions.question_final_answer, questions.question_image
+    const quizDetails = (await db.query(`SELECT quizzes.quiz_id, quizzes.quiz_name, categories.category_name, questions.question_number, questions.question_question, questions.question_value, questions.question_answer_1, questions.question_answer_2, questions.question_answer_3, questions.question_answer_4, questions.question_final_answer, questions.question_image
                                     FROM quizzes
                                     JOIN categories
                                     ON quizzes.quiz_category_id = categories.category_id
@@ -16,8 +16,6 @@ export default async function Quiz({params, searchParams}){
                                     ON questions.question_quiz_id = quizzes.quiz_id
                                     WHERE quiz_id = $1 AND question_number = $2
                                     ORDER BY questions.question_id DESC`, [quiz, question])).rows[0]
-
-
 
     return(
         <>        

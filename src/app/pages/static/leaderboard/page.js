@@ -4,7 +4,8 @@ export default async function Leaderboard(){
 
     const db = connect()
 
-    const leaderboard = (await db.query(`SELECT users.user_id AS user, quizzes.quiz_name AS quiz, categories.category_name AS type, statuses.status_name AS status, user_quizzes.user_quiz_score AS score, user_quizzes.user_quiz_progress AS progress
+    const leaderboard = (await db.query(`SELECT users.user_id AS user, users.user_username AS username, quizzes.quiz_name AS quiz, categories.category_name AS type, statuses.status_name AS status, user_quizzes.user_quiz_score AS score, user_quizzes.user_quiz_progress AS progress
+                                        
                                         FROM user_quizzes
 
                                         JOIN statuses
@@ -28,9 +29,9 @@ export default async function Leaderboard(){
             
             {leaderboard.map((item) =>{
                 return(
-                <>
-                    <h5>Username: {item.user}, Quiz name: {item.quiz}, Quiz category: {item.type}, Status: {item.status}, Score: {item.score}, Completed round: {item.progress}</h5>
-                </>
+                <div key={item.user}>
+                    <h5 key={item.user}>UserID: {item.user}, Username: {item.username}, Quiz name: {item.quiz}, Quiz category: {item.type}, Status: {item.status}, Score: {item.score}, Completed round: {item.progress}, Date: </h5>
+                </div>
                 )
             })}
 
