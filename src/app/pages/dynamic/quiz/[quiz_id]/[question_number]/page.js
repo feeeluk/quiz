@@ -5,7 +5,7 @@ export default async function Quiz({params, searchParams}){
 
     const db = connect()
     const quiz = params.quiz_id
-    const question = params.questions_number
+    const question = params.question_number
     const score = searchParams.score
 
     const quizDetails = (await db.query(`SELECT quizzes.quiz_name, categories.category_name, questions.question_number, questions.question_question, questions.question_value, questions.question_answer_1, questions.question_answer_2, questions.question_answer_3, questions.question_answer_4, questions.question_final_answer, questions.question_image

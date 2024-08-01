@@ -29,7 +29,7 @@ export default async function Leaderboard(){
             {leaderboard.map((item) =>{
                 return(
                 <>
-                    <h1>User: {item.user}, Status: {item.status}, Score: {item.score}, Question: {item.progress}</h1>
+                    <h5>Username: {item.user}, Quiz name: {item.quiz}, Quiz category: {item.type}, Status: {item.status}, Score: {item.score}, Completed round: {item.progress}</h5>
                 </>
                 )
             })}

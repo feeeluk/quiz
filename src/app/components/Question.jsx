@@ -8,25 +8,30 @@ export function Question({quizID, name, category, question_number, value, questi
 
     const router = useRouter()
     
-    
-    function handleAnswer(quizID, question_number, answer, final_answer, value, score){
+    function handleAnswer(a_quizID, a_question_number, a_score, a_answer, a_final_answer){
         
-        if(question_number === "15" && answer === final_answer){
-            
+        // win
+        if(a_question_number === "15" && a_answer === a_final_answer){
+            a_score = parseInt(a_score, 10) + value
+            UpdateLeaderboard("Test", a_quizID, 1, a_score, (parseInt(a_question_number,10)) )
             router.push("/pages/static/won")
         }
-        else if(answer === final_answer){
-            score = parseInt(score, 10) + value
-            router.push(`/pages/dynamic/quiz/${quizID}/${parseInt(question_number,10) + 1}?quiz=${quizID}&score=${score}`)
+        
+        // answer correctly
+        else if(a_answer === a_final_answer){
+            a_score = parseInt(a_score, 10) + value
+            router.push(`/pages/dynamic/quiz/${a_quizID}/${parseInt(a_question_number,10) + 1}?score=${a_score}`)
         }
-        else{
-            
-            UpdateLeaderboard("Test", 1, 3, 0, 0 )
+        
+        // lose
+        else{    
+            UpdateLeaderboard("Test", a_quizID, 3, a_score, (parseInt(a_question_number,10)-1) )
             router.push("/pages/static/lost")
         }
     }
 
-    function handleQuit(){
+    function handleQuit(q_quizID, q_question_number, q_score){
+        UpdateLeaderboard("Test", q_quizID, 2, q_score, (parseInt(q_question_number,10)-1) )
         router.push("/pages/static/quit")
 
     }
@@ -37,14 +42,14 @@ export function Question({quizID, name, category, question_number, value, questi
             <h1>Value: {value}</h1>
             <h1>Question: {question}</h1>
             <Image src={image} width={800} height={400} alt="question"  />
-            <h1>Answer 1: <button onClick={() => handleAnswer(quizID, question_number, answer_1, final_answer, value, score)}>{answer_1}</button></h1>
-            <h1>Answer 2: <button onClick={() => handleAnswer(quizID, question_number, answer_2, final_answer, value, score)}>{answer_2}</button></h1>
-            <h1>Answer 3: <button onClick={() => handleAnswer(quizID, question_number, answer_3, final_answer, value, score)}>{answer_3}</button></h1>
-            <h1>Answer 4: <button onClick={() => handleAnswer(quizID, question_number, answer_4, final_answer, value, score)}>{answer_4}</button></h1>
+            <h1>Answer 1: <button onClick={() => handleAnswer(quizID, question_number, score, answer_1, final_answer)}>{answer_1}</button></h1>
+            <h1>Answer 2: <button onClick={() => handleAnswer(quizID, question_number, score, answer_2, final_answer)}>{answer_2}</button></h1>
+            <h1>Answer 3: <button onClick={() => handleAnswer(quizID, question_number, score, answer_3, final_answer)}>{answer_3}</button></h1>
+            <h1>Answer 4: <button onClick={() => handleAnswer(quizID, question_number, score, answer_4, final_answer)}>{answer_4}</button></h1>
             <h1>Final answer: {final_answer}</h1>
             <h1>Score: {score}</h1>
 
-            <button onClick={() => handleQuit()}>QUIT</button>
+            <button onClick={() => handleQuit(quizID, question_number, score)}>QUIT</button>
         </>     
     )
 }
