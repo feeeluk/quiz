@@ -86,13 +86,9 @@ body {
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: white;
+  background: rgb(22,17,98);
+  background: radial-gradient(circle, rgba(22,17,98,1) 0%, rgba(30,5,145,1) 47%, rgba(61,80,221,1) 100%);
 }
 
 a {
@@ -106,15 +102,50 @@ a {
   }
 }
 
-.Navbar, .Footer{
-  width: 100vw;
-  background-color: green;
+.PageParent{
+  margin: 0 auto 0;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  width: 1000px;
+  height: 77vh;
+  display: flex;
+  flex-direction: column;
+  justify-content:left;
+  align-items: center;
 }
 
-.QuizzesParent{
+.Navbar, .Footer{
+  width: 100vw;
+  background: rgb(22,17,98);
+  background: radial-gradient(circle, rgba(22,17,98,1) 0%, rgba(30,5,145,1) 47%, rgba(61,80,221,1) 100%);
+}
+
+.Navbar{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 5px;
+  border-bottom: 3px outset #5877E3;
+}
+
+.Navbar h1{
+  display: inline;
+}
+
+/* .Title{
+
+} */
+
+.PageMessage{
+  margin-bottom: 10px;
+}
+
+.QuizParent{
   display: flex;
   flex-direction: row;
-  background-color: blue;
   justify-content: center;
 }
 
@@ -123,9 +154,74 @@ a {
   height: 100px;
   padding: 5px;
   margin: 5px;
-  background-color: red;
+  border-radius: 5px;
+  background-color: rgba(44, 75, 177, 0.801);
+
 }
 
-.QuizDetails{
-  background-color: orange;
+.QuestionLayout{
+  border: 2px solid white;
+  padding: 4px;
+  margin-bottom: 4px;
+  border-radius: 5px;
+}
+
+.QuestionBar{
+  margin-top: 5px;
+}
+
+.Question{
+  text-align: left;
+  display: inline-block;
+  width: 640px;
+  /* background-color: red; */
+}
+
+.QuestionNumber{
+  text-align: right;
+  display: inline-block;
+  width: 50px;
+  /* background-color: green; */
+  vertical-align: top;
+  }
+
+.AnswerBox{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.AnswerTopRow{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.AnswerBottomRow{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.Answer{
+  width: 345px;
+  text-align: center;
+}
+
+.Answer button{
+  background: none;
+  border: none;
+  width: 100%;
+  color: inherit;
+}
+
+.Footer p {
+  font-size: 10px;
+}
+
+.Footer {
+  border-top: 3px outset #5877E3;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  text-align: center;
 }

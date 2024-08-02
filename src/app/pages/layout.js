@@ -5,7 +5,9 @@ export default function RegularLayout({ children }) {
     return(
         <section>
             <Navbar />
+            <div className="PageParent">
                 {children}
+            </div>
             <Footer />
         </section>
     )

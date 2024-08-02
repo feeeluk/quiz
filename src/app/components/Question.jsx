@@ -35,6 +35,7 @@ export function Question({quizID, name, category, question_number, value, questi
         }
     }
 
+    // quit
     async function handleQuit(q_userID, q_username, q_quizID, q_question_number, q_score){
         await AddUser(q_userID, q_username)
         UpdateLeaderboard(q_userID, q_quizID, 2, q_score, (parseInt(q_question_number) -1) )
@@ -43,15 +44,37 @@ export function Question({quizID, name, category, question_number, value, questi
 
     return(
         <>  
-            <h1>(Name: {name}) (Category: {category}) (Question number: {question_number})</h1>
-            <h1>Value: {value}</h1>
-            <h1>Question: {question}</h1>
-            <Image src={image} width={800} height={400} alt="question"  />
-            <h1>Answer 1: <button onClick={() => handleAnswer(user.id, user.username, quizID, question_number, score, answer_1, final_answer)}>{answer_1}</button></h1>
-            <h1>Answer 2: <button onClick={() => handleAnswer(user.id, user.username, quizID, question_number, score, answer_2, final_answer)}>{answer_2}</button></h1>
-            <h1>Answer 3: <button onClick={() => handleAnswer(user.id, user.username, quizID, question_number, score, answer_3, final_answer)}>{answer_3}</button></h1>
-            <h1>Answer 4: <button onClick={() => handleAnswer(user.id, user.username, quizID, question_number, score, answer_4, final_answer)}>{answer_4}</button></h1>
-            <h1>Final answer: {final_answer}</h1>
+            <div className="QuestionLayout QuestionBar">
+                <div className="Question">Question: {question}</div>
+                <div className="QuestionNumber">{question_number} / 15</div>
+            </div>
+
+            <div className="QuestionImage">
+                <Image src={image} width={700} height={350} alt="question"  />
+            </div>
+
+            <div className="AnswerBox">
+                <div className="AnswerTopRow">
+                    <div className="QuestionLayout Answer">
+                        <button onClick={() => handleAnswer(user.id, user.username, quizID, question_number, score, answer_1, final_answer)}>{answer_1}</button>
+                    </div>
+
+                    <div className="QuestionLayout Answer">
+                        <button onClick={() => handleAnswer(user.id, user.username, quizID, question_number, score, answer_2, final_answer)}>{answer_2}</button>
+                    </div>
+                </div>
+
+                <div className="AnswerBottomRow">
+                    <div className="QuestionLayout Answer">
+                        <button onClick={() => handleAnswer(user.id, user.username, quizID, question_number, score, answer_3, final_answer)}>{answer_3}</button>
+                    </div>
+
+                    <div className="QuestionLayout Answer">
+                        <button onClick={() => handleAnswer(user.id, user.username, quizID, question_number, score, answer_4, final_answer)}>{answer_4}</button>
+                    </div>
+                </div>
+            </div>
+
             <h1>Score: {score}</h1>
 
             <button onClick={() => handleQuit(user.id, user.username, quizID, question_number, score)}>QUIT</button>

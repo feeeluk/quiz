@@ -7,19 +7,22 @@ export function Navbar(){
     return(
         
         <div className="Navbar">
-            <Image src="/logo.png" width={160} height={160} alt="logo" />
-            <Link href="/pages/static/home">Home </Link>
-            |
-            <Link href="/pages/static/about"> About </Link>
-            |
-            <Link href="/pages/static/leaderboard"> Leaderboard </Link>
-            |
-            <SignedOut>
-              <SignInButton mode="modal"/>
-            </SignedOut>
-            <SignedIn>
-              <UserButton />
-            </SignedIn>
+          
+            <Image className="logo" src="/logo.png" width={110} height={110} alt="logo" />
+            <div>
+              <Link href="/pages/static/home">Home </Link>
+              |
+              <Link href="/pages/static/about"> About </Link>
+              |
+              <Link href="/pages/static/leaderboard"> Leaderboard </Link>
+              |
+              <SignedOut>
+                <SignInButton mode="modal"/>
+              </SignedOut>
+              <SignedIn>
+                <UserButton />
+              </SignedIn>
+            </div>
         
         </div>        
     )

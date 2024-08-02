@@ -13,19 +13,26 @@ export default async function Home(){
 
     return(
         <>
-            <h1>Home</h1>
-            <p>You must be logged in to play</p>
-            <div className="QuizzesParent">
+            <div className="Title">
+                <h1>Home</h1>
+            </div>
+
+            <div className="PageMessage">
+                {/* <p>You must be logged in to play</p> */}
+            </div>
+            
+            <div className="QuizParent">
                 {quizzes.map( (quiz) => {
-                    return(
-                        <div key={quiz.quiz_id}>
-                            <Link href={`/pages/dynamic/quiz/${quiz.quiz_id}/1?score=0`}>
-                                <Quiz key={quiz.quiz_id} quiz_name={quiz.quiz_name} quiz_category={quiz.category_name}/>
-                            </Link>
-                        </div>
+                return(
+                    <div key={quiz.quiz_id}>
+                        <Link href={`/pages/dynamic/quiz/${quiz.quiz_id}/1?score=0`}>
+                            <Quiz key={quiz.quiz_id} quiz_name={quiz.quiz_name} quiz_category={quiz.category_name}/>
+                        </Link>
+                    </div>
                     )
                 })}
             </div>
+            
         </>
         
     )

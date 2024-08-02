@@ -1,7 +1,7 @@
 export function Footer(){
     return(
         <div className="Footer">
-            <h1>Footer</h1>
+            <p>This is V2 of WhoWantsToBeLessOfAPeasant? V1 was created as a showcase project - see 'About' for more.</p>
         </div>
         
     )

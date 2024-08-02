@@ -19,10 +19,10 @@ export default async function Quiz({params, searchParams}){
 
     return(
         <>        
-            <div className="QuizDetails">
-                
-                <Question quizID={quiz} name={quizDetails.quiz_name} category={quizDetails.category_name} question_number={question} value={quizDetails.question_value} question={quizDetails.question_question} answer_1={quizDetails.question_answer_1} answer_2={quizDetails.question_answer_2} answer_3={quizDetails.question_answer_3} answer_4={quizDetails.question_answer_4} final_answer={quizDetails.question_final_answer} score={score} image={quizDetails.question_image} />
-                   
+            <h1>{quizDetails.quiz_name} ({quizDetails.category_name})</h1>
+
+            <div className="QuizDetails">            
+                <Question quizID={quiz} name={quizDetails.quiz_name} category={quizDetails.category_name} question_number={question} value={quizDetails.question_value} question={quizDetails.question_question} answer_1={quizDetails.question_answer_1} answer_2={quizDetails.question_answer_2} answer_3={quizDetails.question_answer_3} answer_4={quizDetails.question_answer_4} final_answer={quizDetails.question_final_answer} score={score} image={quizDetails.question_image} />           
             </div>
         </>
     )
