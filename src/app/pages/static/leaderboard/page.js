@@ -24,17 +24,19 @@ export default async function Leaderboard(){
 
     return(
         
-        <div>
-            <h1>Leaderboard</h1>
+        <>
+            <h1>Leaderboard</h1>         
             
-            {leaderboard.map((item) =>{
-                return(
-                <div key={item.user}>
-                    <h5 key={item.user}>User: {item.username}, Quiz: {item.quiz} ({item.type}), {item.status}, {item.score}pts, Completed round: {item.progress}</h5>
-                </div>
-                )
-            })}
+            <div className="Leaderboard">
+                {leaderboard.map((item) =>{
+                    return(
+                    <div key={item.user}>
+                        <h5 key={item.user}>User: {item.username}, Quiz: {item.quiz} ({item.type}), {item.status}, {item.score}pts, Completed round: {item.progress}</h5>
+                    </div>
+                    )
+                })}
+            </div>
 
-        </div>
+        </>
     )
 }
