@@ -73,7 +73,7 @@ a {
 }
 
 .QuestionLayout{
-  border: 2px solid white;
+  border: 1px solid white;
   padding: 4px;
   margin-bottom: 4px;
   border-radius: 5px;
@@ -81,21 +81,24 @@ a {
 
 .QuestionBar{
   margin-top: 5px;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .Question{
   text-align: left;
   display: inline-block;
   width: 640px;
-  /* background-color: red; */
+  padding-left: 5px;
 }
 
 .QuestionNumber{
   text-align: right;
   display: inline-block;
   width: 50px;
-  /* background-color: green; */
-  vertical-align: top;
+  padding-right: 5px;
   }
 
 .AnswerBox{
@@ -118,13 +121,16 @@ a {
 
 .Answer{
   width: 345px;
+  height: 50px;
   text-align: center;
+  padding: 0px;
 }
 
 .Answer button{
   background: none;
   border: none;
   width: 100%;
+  height: 100%;
   color: inherit;
 }
 
