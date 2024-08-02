@@ -19,7 +19,7 @@ export function Question({quizID, question_number, value, question, answer_1, an
         const userQuit = async () => {
 
             await AddUser(user.id, user.username)
-            awaitUpdateLeaderboard(user.id, quizID, 2, score, (parseInt(question_number) -1) )
+            await UpdateLeaderboard(user.id, quizID, 2, score, (parseInt(question_number) -1) )
             router.push("/pages/static/quit")
         }
 
