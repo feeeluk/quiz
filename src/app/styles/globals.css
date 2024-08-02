@@ -64,12 +64,10 @@ a {
 
 .Quiz{
   width: 200px;
-  height: 100px;
   padding: 5px;
   margin: 5px;
   border-radius: 5px;
   background-color: rgba(44, 75, 177, 0.801);
-
 }
 
 .QuestionLayout{
