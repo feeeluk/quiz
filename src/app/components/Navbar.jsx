@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { SignInButton, SignedIn, SignedOut, SignOutButton } from '@clerk/nextjs'
+import { SignInButton, UserButton, SignedIn, SignedOut, SignOutButton } from '@clerk/nextjs'
 import { useRouter } from "next/navigation"
 
 export function Navbar(){
@@ -14,23 +14,25 @@ export function Navbar(){
         <div className="Navbar">
           
             <div className="LogoContainer">
-              <Link href="/pages/static/home">
+              <Link href="/home">
                 <Image className="Logo" src="/logo.png" width={110} height={110} alt="logo" />
               </Link>
             </div>
 
             <div className="LinksBar">
-              <Link href="/pages/static/home">Home</Link>
+              <Link href="/home">Home</Link>
               &nbsp;|&nbsp;
-              <Link href="/pages/static/about">About</Link>
+              <Link href="/about">About</Link>
               &nbsp;|&nbsp;
-              <Link href="/pages/static/leaderboard">Leaderboard</Link>
+              <Link href="/leaderboard">Leaderboard</Link>
               &nbsp;|&nbsp;
               <SignedOut>
                 <SignInButton mode="modal"/>
               </SignedOut>
               <SignedIn>
-                <SignOutButton redirectUrl="/pages/static/home" />
+                <SignOutButton redirectUrl="/" />
+                &nbsp;
+                <UserButton />
               </SignedIn>
             </div>
         

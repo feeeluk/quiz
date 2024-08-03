@@ -10,7 +10,7 @@ export default function Ebout(){
         </p>
 
         <button>
-            <Link href="/pages/static/home">OK</Link>
+            <Link href="/home">OK</Link>
         </button> 
     </>
     )

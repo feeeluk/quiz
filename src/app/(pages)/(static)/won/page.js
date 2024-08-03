@@ -8,7 +8,7 @@ export default function Win(){
         <p>
             Your progress will be saved.</p>
         <button>
-            <Link href="/pages/static/home">OK</Link>
+            <Link href="/home">OK</Link>
         </button>              
     </>
     )

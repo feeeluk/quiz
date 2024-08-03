@@ -4,14 +4,20 @@ import { ClerkProvider} from '@clerk/nextjs'
 
 export default function RegularLayout({ children }) {
     return(
-        <section>
-            <ClerkProvider>
+        <ClerkProvider>
+            <section>
                 <Navbar />
+            </section>
+
+            <section>
                 <div className="PageParent">
                     {children}
                 </div>
+            </section>
+
+            <section>
                 <Footer />
-            </ClerkProvider>
-        </section>
+            </section>
+        </ClerkProvider>
     )
   }

@@ -20,25 +20,25 @@ export function Question({quizID, question_number, value, question, answer_1, an
         const userQuit = async () => {
             await AddUser(user.id, user.username)
             await UpdateLeaderboard(user.id, quizID, 2, score, (parseInt(question_number) -1) )
-            router.push("/pages/static/quit")
+            router.push("/quit")
         }
 
         const win = async () => {
             score = parseInt(score, 10) + value
             await AddUser(user.id, user.username)
             await UpdateLeaderboard(user.id, quizID, 1, score, question_number)
-            router.push("/pages/static/won")
+            router.push("/won")
         }
         
         const correct = () => {
             score = parseInt(score, 10) + value
-            router.push(`/pages/dynamic/quiz/${quizID}/${parseInt(question_number) +1}?score=${score}`)
+            router.push(`/quiz/${quizID}/${parseInt(question_number) +1}?score=${score}`)
         }
         
         const lose = async () => {
             await AddUser(user.id, user.username)
             await UpdateLeaderboard(user.id, quizID, 3, score, (parseInt(question_number) -1))
-            router.push("/pages/static/lost")
+            router.push("/lost")
         }
 
         // quit
