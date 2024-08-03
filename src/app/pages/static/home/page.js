@@ -1,6 +1,7 @@
 import { connect } from "@/app/utils/connect"
 import { Quiz } from "@/app/components/Quiz"
 import Link from "next/link"
+import { SignedOut } from '@clerk/nextjs'
 
 export default async function Home(){
 
@@ -17,9 +18,11 @@ export default async function Home(){
                 <h1>Home</h1>
             </div>
 
-            <div className="PageMessage">
-                {/* <p>You must be logged in to play</p> */}
-            </div>
+            <SignedOut>
+                <div className="PageMessage">
+                    <p>You must be logged in to play</p>
+                </div>
+            </SignedOut>
             
             <div className="QuizParent">
                 {quizzes.map( (quiz) => {
