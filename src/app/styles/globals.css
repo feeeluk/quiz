@@ -63,6 +63,8 @@ a {
   padding-top: 10px;
   padding-bottom: 15px;
   text-align: center;
+  font-family: inherit;
+  font-size: 12px;
 }
 
 /* LANDING PAGE */
