@@ -1,7 +1,7 @@
 import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
 
 const isProtectedRoute = createRouteMatcher([
-  '/pages/dynamic/quiz(.*)',
+  '/quiz(.*)',
 ]);
 
 export default clerkMiddleware((auth, req) => {
