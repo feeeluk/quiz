@@ -1,0 +1,29 @@
+.StaticPage{
+  margin: 0 auto 0;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  width: 1000px;
+  height: 77vh;
+  display: flex;
+  flex-direction: column;
+  justify-content:left;
+  align-items: center;
+}
+
+/* HOMEPAGE */
+
+.AllQuizzes{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.QuizCardComponent{
+  width: 200px;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+  background-color: rgba(44, 75, 177, 0.801);
+}

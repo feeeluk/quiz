@@ -1,6 +1,7 @@
 import { Navbar } from "@/app/components/Navbar";
 import { Footer } from "@/app/components/Footer";
 import { ClerkProvider} from '@clerk/nextjs'
+import "@/app/styles/globals.css";
 
 export default function RegularLayout({ children }) {
     return(
@@ -10,9 +11,7 @@ export default function RegularLayout({ children }) {
             </section>
 
             <section>
-                <div className="PageParent">
-                    {children}
-                </div>
+                {children}
             </section>
 
             <section>

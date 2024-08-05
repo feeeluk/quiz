@@ -24,7 +24,7 @@ export default async function Home(){
                 </div>
             </SignedOut>
             
-            <div className="QuizParent">
+            <div className="AllQuizzes">
                 {quizzes.map( (quiz) => {
                 return(
                     <div key={quiz.quiz_id}>
