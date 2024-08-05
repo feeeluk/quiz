@@ -5,6 +5,10 @@ export default function Home() {
     <div className="LandingPage">
       <Link href="/home">
         <h1>Landing Page</h1>
+      </Link>
+
+      <Link href="/home">
+        <h5>Click to enter</h5>
       </Link> 
     </div>
   );

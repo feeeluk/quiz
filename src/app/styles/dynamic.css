@@ -4,7 +4,7 @@
   padding-right: 10px;
   padding-top: 10px;
   padding-bottom: 15px;
-  width: 1000px;
+  width: vw 100;
   height: 77vh;
   display: flex;
   flex-direction: column;
@@ -12,7 +12,37 @@
   align-items: center;
 }
 
-/* QUIZ QUESTIONS */
+/* QUIZ */
+
+.QuizParent{
+  display: flex;
+  flex-direction: row;
+}
+
+.QuizProgress{
+  width: 250px;
+  height: 468px;
+  margin-top: 73px;
+  margin-right: 50px;
+}
+
+.QuizProgress h5{
+border: solid 1px darkgray;
+border-radius: 5px;
+margin-bottom: 5px;
+padding: 2px;
+text-align: center;
+font-family: inherit;
+font-weight: 400;
+}
+
+.Win{
+  background-color:darkgreen;
+}
+
+.Checkpoint{
+  background-color: chocolate;
+}
 
 .QuestionLayout{
   border: 1px solid white;
@@ -27,13 +57,14 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  background-color:darkslategray;
 }
 
 .Question{
   text-align: left;
   display: inline-block;
   width: 620px;
-  padding-left: 5px;
+  padding-left: 15px;
 }
 
 .QuestionNumber{
@@ -41,7 +72,7 @@
   display: inline-block;
   width: 60px;
   padding-right: 5px;
-  }
+}
 
 .QuestionImage{
   margin-bottom: 8px;
@@ -79,12 +110,45 @@
   height: 100%;
   color: inherit;
   font-size: 18px;
+  background-color:darkgray;
 }
 
 .Answer button:hover{
   cursor: pointer;
 }
 
-.Footer p {
-  font-size: 10px;
+.QuizOptions{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+  height: 350px;
+  margin-top: 73px;
+  margin-left: 50px;
+  border: solid 0px white;
+  text-align: center;
+}
+
+.Lifeline{
+  width: 180px;
+  height: 30px;
+  color: inherit;
+  font-family: inherit;
+  font-size: 16px;
+  background-color: rgba(151, 103, 197, 0.452);
+  margin-bottom: 10px;
+  font-weight: 300;
+}
+
+.Lifeline:hover{
+  cursor: pointer;
+}
+
+.Quit{
+  width: 80px;
+  height: 30px;
+  font-family: inherit;
+  font-size: 18px;
+  margin-bottom: 10px;
 }
