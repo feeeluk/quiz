@@ -44,6 +44,10 @@ font-weight: 400;
   background-color: chocolate;
 }
 
+.CurrentRound{
+  box-shadow: 0 0 10px 1.5px #48abe0;
+}
+
 .QuestionLayout{
   border: 1px solid white;
   padding: 4px;
@@ -127,7 +131,6 @@ font-weight: 400;
   margin-top: 73px;
   margin-left: 50px;
   border: solid 0px white;
-  text-align: center;
 }
 
 .Lifeline{
@@ -139,6 +142,7 @@ font-weight: 400;
   background-color: rgba(151, 103, 197, 0.452);
   margin-bottom: 10px;
   font-weight: 300;
+  visibility: hidden;
 }
 
 .Lifeline:hover{

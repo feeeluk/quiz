@@ -73,74 +73,53 @@ export function Question({quizID, question_number, value, question, answer_1, an
 
         return(
             <>  
-            <div className="QuizProgress">
 
-                <h5 className="Win">Round 15: 120pts</h5>
-                <h5>Round 14: 105pts</h5>
-                <h5>Round 13: 91pts</h5>
-                <h5>Round 12: 78pts</h5>
-                <h5>Round 11: 66pts</h5>
+                <div className="QuizDetails">
 
-                <h5 className="Checkpoint">Round 10: 55pts</h5>
-                <h5>Round 9: 45pts</h5>
-                <h5>Round 8: 36pts</h5>
-                <h5>Round 7: 28pts</h5>
-                <h5>Round 6: 21pts</h5>
+                    <div className="QuestionLayout QuestionBar">
+                        <div className="Question">Question: {question}</div>
+                        <div className="QuestionNumber">{question_number} / 15</div>
+                    </div>
                 
-                <h5 className="Checkpoint">Round 5: 15pts</h5>
-                <h5>Round 4: 10pts</h5>
-                <h5>Round 3: 6pts</h5>
-                <h5>Round 2: 3pts</h5>
-                <h5>Round 1: 1pt</h5>
+                    <div className="QuestionImage">
+                        <Image src={image} width={700} height={350} alt="question"  />
+                    </div>
 
-            </div>
+                    <div className="AnswerBox">
+                        <div className="AnswerTopRow">
+                            <div className="QuestionLayout Answer">
+                                <button onClick={() => handleAnswer(answer_1)}>{answer_1}</button>
+                            </div>
 
-            <div className="QuizDetails">
-
-                <div className="QuestionLayout QuestionBar">
-                    <div className="Question">Question: {question}</div>
-                    <div className="QuestionNumber">{question_number} / 15</div>
-                </div>
-                
-                <div className="QuestionImage">
-                    <Image src={image} width={700} height={350} alt="question"  />
-                </div>
-
-                <div className="AnswerBox">
-                    <div className="AnswerTopRow">
-                        <div className="QuestionLayout Answer">
-                            <button onClick={() => handleAnswer(answer_1)}>{answer_1}</button>
+                            <div className="QuestionLayout Answer">
+                                <button onClick={() => handleAnswer(answer_2)}>{answer_2}</button>
+                            </div>
                         </div>
 
-                        <div className="QuestionLayout Answer">
-                            <button onClick={() => handleAnswer(answer_2)}>{answer_2}</button>
+                        <div className="AnswerBottomRow">
+                            <div className="QuestionLayout Answer">
+                                <button onClick={() => handleAnswer(answer_3)}>{answer_3}</button>
+                            </div>
+
+                            <div className="QuestionLayout Answer">
+                                <button onClick={() => handleAnswer(answer_4)}>{answer_4}</button>
+                            </div>
                         </div>
                     </div>
 
-                    <div className="AnswerBottomRow">
-                        <div className="QuestionLayout Answer">
-                            <button onClick={() => handleAnswer(answer_3)}>{answer_3}</button>
-                        </div>
-
-                        <div className="QuestionLayout Answer">
-                            <button onClick={() => handleAnswer(answer_4)}>{answer_4}</button>
-                        </div>
-                    </div>
                 </div>
 
-            </div>
+                <div className="QuizOptions">
 
-            <div className="QuizOptions">
+                    <button className="Lifeline">Ask the audience</button>
 
-                <button className="Lifeline">Ask the audience</button>
+                    <button className="Lifeline">50 : 50</button>
+                    
+                    <button className="Lifeline">Phone a friend</button>
 
-                <button className="Lifeline">50 : 50</button>
-                
-                <button className="Lifeline">Phone a friend</button>
+                    <button className="Quit"onClick={() => handleQuit()}>QUIT</button>
+                </div>
 
-                <button className="Quit"onClick={() => handleQuit()}>QUIT</button>
-            </div>
-
-        </>     
+            </>     
     )
 }
