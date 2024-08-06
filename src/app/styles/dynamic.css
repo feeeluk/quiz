@@ -142,7 +142,7 @@ font-weight: 400;
   background-color: rgba(151, 103, 197, 0.452);
   margin-bottom: 10px;
   font-weight: 300;
-  visibility: visible;
+  visibility: hidden;
 }
 
 .Lifeline:hover{
