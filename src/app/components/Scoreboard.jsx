@@ -1,4 +1,4 @@
-export function Round({roundDetails, currentRound}){
+export function Scoreboard({roundDetails, currentRound}){
 
     const round = JSON.parse(roundDetails)
 

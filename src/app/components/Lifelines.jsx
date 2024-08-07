@@ -6,12 +6,15 @@ import { useState} from "react"
 import { useEffect } from "react"
 import { AddUser } from "./AddUser"
 import { UpdateLeaderboard } from "./UpdateLeaderboard"
+import { useContext } from "react"
+import { fiftyFiftyCount } from "../utils/context"
 
 export function Lifelines({quizID, question_number, answer_1, answer_2, answer_3, answer_4, final_answer, score}){
 
     const router = useRouter()
     const { user } = useUser()
     const [quit, setQuit] = useState(0)
+    const {count, setCount} = useContext(fiftyFiftyCount)
 
     useEffect(() => {
 
@@ -26,6 +29,8 @@ export function Lifelines({quizID, question_number, answer_1, answer_2, answer_3
             userQuit() 
             }
 
+            if(count === 1){document.getElementById("fiftyFifty").className = "Lifeline Unavailable"}
+
     },[quit])
 
         function handleQuit(){
@@ -39,6 +44,7 @@ export function Lifelines({quizID, question_number, answer_1, answer_2, answer_3
 
         function handleFiftyFifty(){
             const fiftyFiftyArray = fiftyFiftyAnswers()
+            setCount(count +1)
             document.getElementById(`${fiftyFiftyArray[0]}`).className = "QuestionLayout Answer Hide"
             document.getElementById(`${fiftyFiftyArray[1]}`).className = "QuestionLayout Answer Hide"
             document.getElementById("fiftyFifty").className = "Lifeline Unavailable"
@@ -70,6 +76,8 @@ export function Lifelines({quizID, question_number, answer_1, answer_2, answer_3
                 <button id="phoneAFriend" className="Lifeline Unavailable" onClick={ () => {handlePhoneAFriend()}}>Phone a friend</button>
 
                 <button className="Quit"onClick={() => handleQuit()}>QUIT</button>
+
+                {count}
 
             </div>
 
