@@ -1,6 +1,7 @@
 import { connect } from "@/app/utils/connect"
-import { Question } from "@/app/components/Question"
 import { Round } from "@/app/components/Round"
+import { Question } from "@/app/components/Question"
+import { Lifelines } from "@/app/components/Lifelines"
 
 export default async function Quiz({params, searchParams}){
 
@@ -46,7 +47,19 @@ export default async function Quiz({params, searchParams}){
                             answer_4={quizDetails.question_answer_4} 
                             final_answer={quizDetails.question_final_answer} 
                             score={score}
-                            image={quizDetails.question_image} />           
+                            image={quizDetails.question_image}
+                            />
+
+                <Lifelines quizID={quiz}
+                            question_number={question}
+                            question={quizDetails.question_question}
+                            answer_1={quizDetails.question_answer_1} 
+                            answer_2={quizDetails.question_answer_2} 
+                            answer_3={quizDetails.question_answer_3} 
+                            answer_4={quizDetails.question_answer_4} 
+                            final_answer={quizDetails.question_final_answer} 
+                            score={score}
+                            />         
             </div>
         </>
     )

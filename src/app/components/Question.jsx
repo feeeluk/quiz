@@ -12,21 +12,9 @@ export function Question({quizID, question_number, value, question, answer_1, an
     const router = useRouter()
     const { user } = useUser();
 
-    let [quit, setQuit] = useState(0)
     let [answer, setAnswer] = useState(null)
-    let [askTheAudience,setAskTheAudience] = useState(0)
-    let [fiftyFifty, setFiftyFifty] = useState(0)
-    let [phoneAFriend, setPhoneAFriend] = useState(0)
     
     useEffect(() => {
-
-
-
-        const userQuit = async () => {
-            await AddUser(user.id, user.username)
-            await UpdateLeaderboard(user.id, quizID, 2, score, (parseInt(question_number) -1) )
-            router.push("/quit")
-        }
 
         const win = async () => {
             score = parseInt(score, 10) + value
@@ -46,13 +34,9 @@ export function Question({quizID, question_number, value, question, answer_1, an
             router.push("/lost")
         }
 
-        // quit
-        if(quit === 1){
-            userQuit() 
-            }
     
             // win
-            else if(answer === final_answer && question_number === "15"){
+            if(answer === final_answer && question_number === "15"){
                 win()
             }
     
@@ -66,42 +50,10 @@ export function Question({quizID, question_number, value, question, answer_1, an
                 lose()
             }
 
-    },[quit, answer, askTheAudience, fiftyFifty, phoneAFriend])
-
-        function handleQuit(){
-            setQuit(1)
-        }
+    },[answer])
 
         function handleAnswer(selectedAnswer){
             setAnswer(selectedAnswer)
-        }
-
-        function handleAskTheAudience(){
-            setAskTheAudience(1)
-            document.getElementById("askTheAudience").className = "Lifeline Unavailable"
-        }
-
-        function handleFiftyFifty(){
-            setFiftyFifty(1)
-            const fiftyFiftyArray = fiftyFiftyAnswers()
-            console.log(fiftyFiftyArray)
-            document.getElementById(`${fiftyFiftyArray[0]}`).className = "Hide"
-            document.getElementById(`${fiftyFiftyArray[1]}`).className = "Hide"
-            document.getElementById("fiftyFifty").className = "Lifeline Unavailable"
-        }
-
-        function handlePhoneAFriend(){
-            setPhoneAFriend(1)
-            document.getElementById("phoneAFriend").className = "Lifeline Unavailable"
-        }
-
-        function fiftyFiftyAnswers(){
-            const answersArray = [answer_1, answer_2, answer_3, answer_4]
-            let temporaryArray = answersArray.filter(answer => answer !== final_answer)
-            temporaryArray = temporaryArray[Math.floor(Math.random()*temporaryArray.length)]
-            let toKeep = [temporaryArray, final_answer]
-            let fiftyfiftyAnswers = answersArray.filter(item => !toKeep.includes(item))
-            return fiftyfiftyAnswers
         }
 
     return(
@@ -139,18 +91,6 @@ export function Question({quizID, question_number, value, question, answer_1, an
                         </div>
                     </div>
                 </div>
-
-            </div>
-
-            <div className="QuizOptions">
-
-                <button id="askTheAudience" className="Lifeline Unavailable" onClick={ () => {handleAskTheAudience()}}>Ask the audience</button>
-
-                <button id="fiftyFifty" className="Lifeline Available" onClick={ () => {handleFiftyFifty()}}>50 : 50</button>
-                
-                <button id="phoneAFriend" className="Lifeline Unavailable" onClick={ () => {handlePhoneAFriend()}}>Phone a friend</button>
-
-                <button className="Quit"onClick={() => handleQuit()}>QUIT</button>
 
             </div>
 
