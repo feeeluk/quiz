@@ -77,8 +77,6 @@ export function Lifelines({quizID, question_number, answer_1, answer_2, answer_3
 
                 <button className="Quit"onClick={() => handleQuit()}>QUIT</button>
 
-                {count}
-
             </div>
 
         </>     
