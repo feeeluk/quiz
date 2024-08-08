@@ -14,47 +14,46 @@ export function Question({quizID, question_number, value, question, answer_1, an
 
     let [answer, setAnswer] = useState(null)
     
+    const win = async () => {
+        score = parseInt(score, 10) + value
+        await AddUser(user.id, user.username)
+        await UpdateLeaderboard(user.id, quizID, 1, score, question_number)
+        router.push("/won")
+    }
+    
+    const correct = () => {
+        score = parseInt(score, 10) + value
+        router.push(`/quiz/${quizID}/${parseInt(question_number) +1}?score=${score}`)
+    }
+    
+    const lose = async () => {
+        await AddUser(user.id, user.username)
+        await UpdateLeaderboard(user.id, quizID, 3, score, (parseInt(question_number) -1))
+        router.push("/lost")
+    }
+
+    function handleAnswer(selectedAnswer){
+        setAnswer(selectedAnswer)
+    }
+    
     useEffect(() => {
 
-        const win = async () => {
-            score = parseInt(score, 10) + value
-            await AddUser(user.id, user.username)
-            await UpdateLeaderboard(user.id, quizID, 1, score, question_number)
-            router.push("/won")
-        }
-        
-        const correct = () => {
-            score = parseInt(score, 10) + value
-            router.push(`/quiz/${quizID}/${parseInt(question_number) +1}?score=${score}`)
-        }
-        
-        const lose = async () => {
-            await AddUser(user.id, user.username)
-            await UpdateLeaderboard(user.id, quizID, 3, score, (parseInt(question_number) -1))
-            router.push("/lost")
+        // win
+        if(answer === final_answer && question_number === "15"){
+            win()
         }
 
-    
-            // win
-            if(answer === final_answer && question_number === "15"){
-                win()
-            }
-    
-            // correct
-            else if(answer === final_answer){
-                correct()
-            }
-    
-            // lose
-            else if(answer != null && answer != final_answer ){
-                lose()
-            }
+        // correct
+        else if(answer === final_answer){
+            correct()
+        }
+
+        // lose
+        else if(answer != null && answer != final_answer ){
+            lose()
+        }
 
     },[answer])
-
-        function handleAnswer(selectedAnswer){
-            setAnswer(selectedAnswer)
-        }
 
     return(
         <>  
