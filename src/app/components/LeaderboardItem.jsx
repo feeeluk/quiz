@@ -4,9 +4,12 @@ import { LeaderboardDeleteItem } from "./LeaderboardDeleteItem"
 
 export function LeaderboardItem({id, username, quiz, category, status, score, progress}){
 
-        const deleteRecord = (id) => {
-            LeaderboardDeleteItem(id)
-        }
+    
+
+    const deleteRecord = (id) => {
+        LeaderboardDeleteItem(id)
+        setTimeout(()=>{window.location="./leaderboard"}, 200)
+    }
 
     return(
         <>       
