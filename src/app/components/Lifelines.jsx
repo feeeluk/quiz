@@ -7,18 +7,24 @@ import { useRouter } from "next/navigation"
 import { useUser } from "@clerk/nextjs"
 import { AddUser } from "./AddUser"
 import { UpdateLeaderboard } from "./UpdateLeaderboard"
+import { totalScore } from "../utils/context"
+import { currentQuestion } from "../utils/context"
 import { fiftyFiftyCount } from "../utils/context"
 
-export function Lifelines({quizID, question_number, answer_1, answer_2, answer_3, answer_4, final_answer, score}){
+export function Lifelines({quizID, answer_1, answer_2, answer_3, answer_4, final_answer}){
 
     const router = useRouter()
     const { user } = useUser()
+
     const [ quit, setQuit ] = useState(0)
+
+    const {question, setQuestion} = useContext(currentQuestion)
+    const {score, setScore} = useContext(totalScore)
     const { count, setCount } = useContext(fiftyFiftyCount)
 
     const userQuit = async () => {
         await AddUser(user.id, user.username)
-        await UpdateLeaderboard(user.id, quizID, 2, score, (parseInt(question_number) -1) )
+        await UpdateLeaderboard(user.id, quizID, 2, score, question -1 )
         router.push("/quit")
     }
 
@@ -77,8 +83,6 @@ export function Lifelines({quizID, question_number, answer_1, answer_2, answer_3
                 <button id="phoneAFriend" className="Lifeline Unavailable" onClick={ () => {handlePhoneAFriend()}}>Phone a friend</button>
 
                 <button className="Quit"onClick={() => handleQuit()}>QUIT</button>
-
-                {}
 
             </div>
 

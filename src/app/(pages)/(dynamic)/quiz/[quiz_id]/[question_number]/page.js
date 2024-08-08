@@ -2,11 +2,13 @@ import { connect } from "@/app/utils/connect"
 import { Scoreboard } from "@/app/components/Scoreboard"
 import { Question } from "@/app/components/Question"
 import { Lifelines } from "@/app/components/Lifelines"
+import { useContext } from "react"
+import { currentQuestion } from "@/app/utils/context"
 
 export default async function Quiz({params, searchParams}){
 
     const db = connect()
-    const quiz = params.quiz_id
+    const quiz = params.quiz_id  
     const question = params.question_number
     const score = searchParams.score
 
@@ -38,27 +40,22 @@ export default async function Quiz({params, searchParams}){
                 <Scoreboard  roundDetails={string} currentRound={question} />
                
                 <Question quizID={quiz}
-                            question_number={question}
                             value={quizDetails.question_value} 
-                            question={quizDetails.question_question}
+                            the_question={quizDetails.question_question}
                             answer_1={quizDetails.question_answer_1} 
                             answer_2={quizDetails.question_answer_2} 
                             answer_3={quizDetails.question_answer_3} 
                             answer_4={quizDetails.question_answer_4} 
                             final_answer={quizDetails.question_final_answer} 
-                            score={score}
                             image={quizDetails.question_image}
                             />
 
                 <Lifelines quizID={quiz}
-                            question_number={question}
-                            question={quizDetails.question_question}
                             answer_1={quizDetails.question_answer_1} 
                             answer_2={quizDetails.question_answer_2} 
                             answer_3={quizDetails.question_answer_3} 
                             answer_4={quizDetails.question_answer_4} 
                             final_answer={quizDetails.question_final_answer} 
-                            score={score}
                             />         
             </div>
         </>
