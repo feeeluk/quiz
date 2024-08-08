@@ -44,6 +44,14 @@ export function Question({quizID, value, the_question, answer_1, answer_2, answe
     function handleAnswer(selectedAnswer){
         setAnswer(selectedAnswer)
     }
+
+    function handleCloseAskTheAudienceWindow(){
+        document.getElementById("AskTheAudienceWindow").style.visibility = "hidden"
+    }
+
+    function handleClosePhoneAFriendWindow(){
+        document.getElementById("PhoneAFriendWindow").style.visibility = "hidden"
+    }
     
     useEffect(() => {
 
@@ -76,6 +84,14 @@ export function Question({quizID, value, the_question, answer_1, answer_2, answe
             
                 <div className="QuestionImage">
                     <Image src={image} width={700} height={350} alt="question"  />
+                    
+                    <div id="AskTheAudienceWindow">
+                        <button onClick={ () =>{handleCloseAskTheAudienceWindow()}}>CLOSE</button>
+                    </div>
+
+                    <div id="PhoneAFriendWindow">
+                        <button onClick={ () =>{handleClosePhoneAFriendWindow()}}>CLOSE</button>
+                    </div>
                 </div>
 
                 <div className="AnswerBox">

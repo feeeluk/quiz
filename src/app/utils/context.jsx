@@ -31,14 +31,14 @@ export function CurrentQuestionProvider({children}){
 
 // ********************************************************************
 
-export const askTheAudienceCount = createContext(0)
+export const askTheAudience = createContext(0)
 
 export function AskTheAudienceProvider({children}){
-    const [count, setCount] = useState(0)
+    const [askAudience, setAskAudience] = useState(0)
     return(
-        <askTheAudienceCount.Provider value={{count, setCount}}>
+        <askTheAudience.Provider value={{askAudience, setAskAudience}}>
             {children}
-        </askTheAudienceCount.Provider>
+        </askTheAudience.Provider>
     )
 }
 

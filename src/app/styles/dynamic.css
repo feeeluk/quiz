@@ -12,12 +12,15 @@
   align-items: center;
 }
 
+/* **************************************************************** */
 /* QUIZ */
 
 .QuizParent{
   display: flex;
   flex-direction: row;
 }
+
+/* Leaderboard */
 
 .QuizProgress{
   width: 250px;
@@ -47,6 +50,8 @@ font-weight: 400;
 .CurrentRound{
   box-shadow: 0 0 10px 1.5px #f701ff;
 }
+
+/* Question */
 
 .QuestionLayout{
   border: 1px solid white;
@@ -80,7 +85,30 @@ font-weight: 400;
 
 .QuestionImage{
   margin-bottom: 8px;
+  position: relative;
 }
+
+    #AskTheAudienceWindow{
+      z-index: 2;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: rgba(255, 255, 255, 0.493);
+      width: 680px;
+      height: 330px;
+      visibility: hidden;
+    }
+
+    #PhoneAFriendWindow{
+      z-index: 2;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: rgba(255, 255, 255, 0.493);
+      width: 680px;
+      height: 330px;
+      visibility: hidden;
+    }
 
 .AnswerBox{
   width: 100%;
@@ -125,6 +153,8 @@ font-weight: 400;
   cursor: pointer;
 }
 
+/* Lifelines */
+
 .QuizOptions{
   display: flex;
   flex-direction: column;
@@ -164,11 +194,14 @@ font-weight: 400;
   cursor:not-allowed;
 }
 
-
 .Quit{
   width: 80px;
   height: 30px;
   font-family: inherit;
   font-size: 18px;
   margin-bottom: 10px;
+}
+
+.Quit:hover{
+  cursor: pointer;
 }

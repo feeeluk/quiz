@@ -9,6 +9,7 @@ import { AddUser } from "./AddUser"
 import { UpdateLeaderboard } from "./UpdateLeaderboard"
 import { totalScore } from "../utils/context"
 import { currentQuestion } from "../utils/context"
+import { askTheAudience } from "../utils/context"
 import { fiftyFiftyCount } from "../utils/context"
 
 export function Lifelines({quizID, answer_1, answer_2, answer_3, answer_4, final_answer}){
@@ -18,8 +19,9 @@ export function Lifelines({quizID, answer_1, answer_2, answer_3, answer_4, final
 
     const [ quit, setQuit ] = useState(0)
 
-    const {question, setQuestion} = useContext(currentQuestion)
-    const {score, setScore} = useContext(totalScore)
+    const { question, setQuestion} = useContext(currentQuestion)
+    const { score, setScore} = useContext(totalScore)
+    const { askAudience, setAskAudience} = useContext(askTheAudience)
     const { count, setCount } = useContext(fiftyFiftyCount)
 
     const userQuit = async () => {
@@ -33,8 +35,9 @@ export function Lifelines({quizID, answer_1, answer_2, answer_3, answer_4, final
     }
 
     function handleAskTheAudience(){
-        setAskTheAudience(1)
-        document.getElementById("askTheAudience").className = "Lifeline Unavailable"
+        setAskAudience(askAudience + 1)
+        document.getElementById("AskTheAudienceWindow").style.visibility = "visible"
+        document.getElementById("AskTheAudienceButton").className = "Lifeline Unavailable"
     }
 
     function handleFiftyFifty(){
@@ -42,7 +45,7 @@ export function Lifelines({quizID, answer_1, answer_2, answer_3, answer_4, final
         setCount(count +1)
         document.getElementById(`${fiftyFiftyArray[0]}`).className = "QuestionLayout Answer Hide"
         document.getElementById(`${fiftyFiftyArray[1]}`).className = "QuestionLayout Answer Hide"
-        document.getElementById("fiftyFifty").className = "Lifeline Unavailable"
+        document.getElementById("FiftyFiftyButton").className = "Lifeline Unavailable"
     }
 
     function fiftyFiftyAnswers(){
@@ -66,8 +69,11 @@ export function Lifelines({quizID, answer_1, answer_2, answer_3, answer_4, final
             userQuit() 
             }
 
-        // Has Lifeline (50:50) been used?
-        if(count === 1){document.getElementById("fiftyFifty").className = "Lifeline Unavailable"}
+        // Has Lifeline (Ask The Audience been used?
+        if(askAudience === 1){document.getElementById("AskTheAudienceButton").className = "Lifeline Unavailable"}
+
+            // Has Lifeline (50:50) been used?
+        if(count === 1){document.getElementById("FiftyFiftyButton").className = "Lifeline Unavailable"}
 
     },[quit, count])
 
@@ -76,11 +82,11 @@ export function Lifelines({quizID, answer_1, answer_2, answer_3, answer_4, final
 
             <div className="QuizOptions">
 
-                <button id="askTheAudience" className="Lifeline Unavailable" onClick={ () => {handleAskTheAudience()}}>Ask the audience</button>
+                <button id="AskTheAudienceButton" className="Lifeline Available" onClick={ () => {handleAskTheAudience()}}>Ask the audience</button>
 
-                <button id="fiftyFifty" className="Lifeline Available" onClick={ () => {handleFiftyFifty()}}>50 : 50</button>
+                <button id="FiftyFiftyButton" className="Lifeline Available" onClick={ () => {handleFiftyFifty()}}>50 : 50</button>
                 
-                <button id="phoneAFriend" className="Lifeline Unavailable" onClick={ () => {handlePhoneAFriend()}}>Phone a friend</button>
+                <button id="PhoneAFriendButton" className="Lifeline Unavailable" onClick={ () => {handlePhoneAFriend()}}>Phone a friend</button>
 
                 <button className="Quit"onClick={() => handleQuit()}>QUIT</button>
 
