@@ -1,6 +1,13 @@
-export function Round({roundDetails, currentRound}){
+"use client"
+
+import { currentQuestion } from "../utils/context"
+import { useContext } from "react"
+
+export function Scoreboard({roundDetails, currentRound}){
 
     const round = JSON.parse(roundDetails)
+    const {question, setQuestion} = useContext(currentQuestion)
+
 
     let value = 8.5
 
@@ -18,7 +25,7 @@ export function Round({roundDetails, currentRound}){
                
                     if(item.question_number === 15){win = "Win"}
                     if(item.question_number === 5 || item.question_number === 10){checkpoint = "Checkpoint"}
-                    if(item.question_number == currentRound-1){current = "CurrentRound"}
+                    if(item.question_number == question-1){current = "CurrentRound"}
 
                     return(
                         <div key={item.question_number}>

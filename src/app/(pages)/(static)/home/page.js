@@ -28,7 +28,7 @@ export default async function Home(){
                 {quizzes.map( (quiz) => {
                 return(
                     <div key={quiz.quiz_id}>
-                        <Link href={`quiz/${quiz.quiz_id}/1?score=0`}>
+                        <Link href={`quiz/${quiz.quiz_id}/1`}>
                             <Quiz key={quiz.quiz_id} name={quiz.quiz_name} category={quiz.category_name} image={quiz.category_image}/>
                         </Link>
                     </div>

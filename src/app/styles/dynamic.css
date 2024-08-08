@@ -45,7 +45,7 @@ font-weight: 400;
 }
 
 .CurrentRound{
-  box-shadow: 0 0 10px 1.5px #48abe0;
+  box-shadow: 0 0 10px 1.5px #f701ff;
 }
 
 .QuestionLayout{
@@ -107,6 +107,10 @@ font-weight: 400;
   padding: 0px;
 }
 
+.Hide{
+  visibility: hidden;
+}
+
 .Answer button{
   background: none;
   border: none;
@@ -139,15 +143,27 @@ font-weight: 400;
   color: inherit;
   font-family: inherit;
   font-size: 16px;
-  background-color: rgba(151, 103, 197, 0.452);
+  
   margin-bottom: 10px;
   font-weight: 300;
-  visibility: hidden;
 }
 
-.Lifeline:hover{
+.Available{
+  background-color: rgba(151, 103, 197, 0.452);
+}
+
+.Available:hover{
   cursor: pointer;
 }
+
+.Unavailable{
+  background-color:dimgrey;
+}
+
+.Unavailable:hover{
+  cursor:not-allowed;
+}
+
 
 .Quit{
   width: 80px;
