@@ -11,6 +11,7 @@ import { totalScore } from "../utils/context"
 import { currentQuestion } from "../utils/context"
 import { askTheAudience } from "../utils/context"
 import { fiftyFiftyCount } from "../utils/context"
+import { phoneAFriend } from "../utils/context"
 
 export function Lifelines({quizID, answer_1, answer_2, answer_3, answer_4, final_answer}){
 
@@ -23,6 +24,7 @@ export function Lifelines({quizID, answer_1, answer_2, answer_3, answer_4, final
     const { score, setScore} = useContext(totalScore)
     const { askAudience, setAskAudience} = useContext(askTheAudience)
     const { count, setCount } = useContext(fiftyFiftyCount)
+    const { phoneFriend, setPhoneFriend} = useContext(phoneAFriend)
 
     const userQuit = async () => {
         await AddUser(user.id, user.username)
@@ -58,8 +60,9 @@ export function Lifelines({quizID, answer_1, answer_2, answer_3, answer_4, final
     }
 
     function handlePhoneAFriend(){
-        setPhoneAFriend(1)
-        document.getElementById("phoneAFriend").className = "Lifeline Unavailable"
+        setPhoneFriend(phoneFriend + 1)
+        document.getElementById("PhoneAFriendWindow").style.visibility = "visible"
+        document.getElementById("PhoneAFriendButton").className = "Lifeline Unavailable"
     }
 
     useEffect(() => {
@@ -72,8 +75,11 @@ export function Lifelines({quizID, answer_1, answer_2, answer_3, answer_4, final
         // Has Lifeline (Ask The Audience been used?
         if(askAudience === 1){document.getElementById("AskTheAudienceButton").className = "Lifeline Unavailable"}
 
-            // Has Lifeline (50:50) been used?
+        // Has Lifeline (50:50) been used?
         if(count === 1){document.getElementById("FiftyFiftyButton").className = "Lifeline Unavailable"}
+
+        // Has Lifeline (Phone A Friend) been used?
+        if(phoneFriend === 1){document.getElementById("PhoneAFriendButton").className = "Lifeline Unavailable"}
 
     },[quit, count])
 
@@ -86,7 +92,7 @@ export function Lifelines({quizID, answer_1, answer_2, answer_3, answer_4, final
 
                 <button id="FiftyFiftyButton" className="Lifeline Available" onClick={ () => {handleFiftyFifty()}}>50 : 50</button>
                 
-                <button id="PhoneAFriendButton" className="Lifeline Unavailable" onClick={ () => {handlePhoneAFriend()}}>Phone a friend</button>
+                <button id="PhoneAFriendButton" className="Lifeline Available" onClick={ () => {handlePhoneAFriend()}}>Phone a friend</button>
 
                 <button className="Quit"onClick={() => handleQuit()}>QUIT</button>
 

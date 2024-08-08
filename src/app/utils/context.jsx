@@ -54,3 +54,16 @@ export function FiftyFiftyProvider({children}){
         </fiftyFiftyCount.Provider>
     )
 }
+
+// ********************************************************************
+
+export const phoneAFriend = createContext(0)
+
+export function PhoneAFriendProvider({children}){
+    const [phoneFriend, setPhoneFriend] = useState(0)
+    return(
+        <phoneAFriend.Provider value={{phoneFriend, setPhoneFriend}}>
+            {children}
+        </phoneAFriend.Provider>
+    )
+}
