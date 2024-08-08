@@ -36,9 +36,9 @@ export const askTheAudienceCount = createContext(0)
 export function AskTheAudienceProvider({children}){
     const [count, setCount] = useState(0)
     return(
-        <askTheAudienceCoun.Provider value={{count, setCount}}>
+        <askTheAudienceCount.Provider value={{count, setCount}}>
             {children}
-        </askTheAudienceCoun.Provider>
+        </askTheAudienceCount.Provider>
     )
 }
 
