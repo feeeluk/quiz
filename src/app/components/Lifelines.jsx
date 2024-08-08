@@ -7,10 +7,10 @@ import { useRouter } from "next/navigation"
 import { useUser } from "@clerk/nextjs"
 import { AddUser } from "./AddUser"
 import { UpdateLeaderboard } from "./UpdateLeaderboard"
-import { totalScore } from "../utils/context"
+import { fiftyFiftyContext, totalScore } from "../utils/context"
 import { currentQuestion } from "../utils/context"
 import { askTheAudience } from "../utils/context"
-import { fiftyFiftyCount } from "../utils/context"
+import { fiftyFifty } from "../utils/context"
 import { phoneAFriend } from "../utils/context"
 
 export function Lifelines({quizID, answer_1, answer_2, answer_3, answer_4, final_answer}){
@@ -23,7 +23,7 @@ export function Lifelines({quizID, answer_1, answer_2, answer_3, answer_4, final
     const { question, setQuestion} = useContext(currentQuestion)
     const { score, setScore} = useContext(totalScore)
     const { askAudience, setAskAudience} = useContext(askTheAudience)
-    const { count, setCount } = useContext(fiftyFiftyCount)
+    const { fiftyFifty, setFiftyFifty } = useContext(fiftyFiftyContext)
     const { phoneFriend, setPhoneFriend} = useContext(phoneAFriend)
 
     const userQuit = async () => {
@@ -44,7 +44,7 @@ export function Lifelines({quizID, answer_1, answer_2, answer_3, answer_4, final
 
     function handleFiftyFifty(){
         const fiftyFiftyArray = fiftyFiftyAnswers()
-        setCount(count +1)
+        setFiftyFifty(fiftyFifty + 1)
         document.getElementById(`${fiftyFiftyArray[0]}`).className = "QuestionLayout Answer Hide"
         document.getElementById(`${fiftyFiftyArray[1]}`).className = "QuestionLayout Answer Hide"
         document.getElementById("FiftyFiftyButton").className = "Lifeline Unavailable"
@@ -76,12 +76,12 @@ export function Lifelines({quizID, answer_1, answer_2, answer_3, answer_4, final
         if(askAudience === 1){document.getElementById("AskTheAudienceButton").className = "Lifeline Unavailable"}
 
         // Has Lifeline (50:50) been used?
-        if(count === 1){document.getElementById("FiftyFiftyButton").className = "Lifeline Unavailable"}
+        if(fiftyFifty === 1){document.getElementById("FiftyFiftyButton").className = "Lifeline Unavailable"}
 
         // Has Lifeline (Phone A Friend) been used?
         if(phoneFriend === 1){document.getElementById("PhoneAFriendButton").className = "Lifeline Unavailable"}
 
-    },[quit, count])
+    },[quit])
 
     return(
         <>  

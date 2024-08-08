@@ -44,14 +44,14 @@ export function AskTheAudienceProvider({children}){
 
 // ********************************************************************
 
-export const fiftyFiftyCount = createContext(0)
+export const fiftyFiftyContext = createContext(0)
 
 export function FiftyFiftyProvider({children}){
-    const [count, setCount] = useState(0)
+    const [fiftyFifty, setFiftyFifty] = useState(0)
     return(
-        <fiftyFiftyCount.Provider value={{count, setCount}}>
+        <fiftyFiftyContext.Provider value={{fiftyFifty, setFiftyFifty}}>
             {children}
-        </fiftyFiftyCount.Provider>
+        </fiftyFiftyContext.Provider>
     )
 }
 
