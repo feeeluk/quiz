@@ -10,21 +10,24 @@ import { UpdateLeaderboard } from "./UpdateLeaderboard"
 import { fiftyFiftyContext, totalScore } from "../utils/context"
 import { currentQuestion } from "../utils/context"
 import { askTheAudience } from "../utils/context"
-import { fiftyFifty } from "../utils/context"
+import { askTheAudienceData } from "../utils/context"
 import { phoneAFriend } from "../utils/context"
+import { phoneAFriendData } from "../utils/context"
 
 export function Lifelines({quizID, answer_1, answer_2, answer_3, answer_4, final_answer}){
 
     const router = useRouter()
-    const { user } = useUser()
-
+    
     const [ quit, setQuit ] = useState(0)
-
+    
+    const { user } = useUser()
     const { question, setQuestion} = useContext(currentQuestion)
     const { score, setScore} = useContext(totalScore)
     const { askAudience, setAskAudience} = useContext(askTheAudience)
+    const { askAudienceData, setAskAudienceData} = useContext(askTheAudienceData)
     const { fiftyFifty, setFiftyFifty } = useContext(fiftyFiftyContext)
     const { phoneFriend, setPhoneFriend} = useContext(phoneAFriend)
+    const { phoneFriendData, setPhoneFriendData} = useContext(phoneAFriendData)
 
     const userQuit = async () => {
         await AddUser(user.id, user.username)
@@ -37,14 +40,50 @@ export function Lifelines({quizID, answer_1, answer_2, answer_3, answer_4, final
     }
 
     function handleAskTheAudience(){
-        setAskAudience(askAudience + 1)
+        const string = askTheAudienceAnswers()
+        setAskAudience(1)
+        setAskAudienceData(`${string}`)
         document.getElementById("AskTheAudienceWindow").style.visibility = "visible"
         document.getElementById("AskTheAudienceButton").className = "Lifeline Unavailable"
     }
 
+    function askTheAudienceAnswers(){
+        const percentageOfCorrectAnswer = Math.floor(Math.random()*30)+70
+        const remaining1 = Math.floor(Math.random()*(100 - percentageOfCorrectAnswer))
+        const remaining2 = Math.floor(Math.random()*(100 - (percentageOfCorrectAnswer + remaining1)))
+        const remaining3 = 100 - (percentageOfCorrectAnswer + remaining1 + remaining2)
+
+        const answersArray = [{answer: `${answer_1}`, percentage: ""},
+                                {answer: `${answer_2}`, percentage: ""},
+                                {answer: `${answer_3}`, percentage: ""},
+                                {answer: `${answer_4}`, percentage: ""}]
+                                
+        
+        let answersTemporaryArray = answersArray.filter(function (item){
+            return item.answer != final_answer
+        })
+
+        answersTemporaryArray.push({answer: `${final_answer}`, percentage: percentageOfCorrectAnswer})    
+        answersTemporaryArray[0].percentage = remaining1
+        answersTemporaryArray[1].percentage = remaining2
+        answersTemporaryArray[2].percentage = remaining3
+
+        answersTemporaryArray.sort(function (a,b){
+            return a.percentage - b.percentage
+        })
+
+        answersTemporaryArray.reverse()
+
+        let string = JSON.stringify(answersTemporaryArray)
+
+        console.log(answersTemporaryArray)
+
+        return string
+    }
+
     function handleFiftyFifty(){
         const fiftyFiftyArray = fiftyFiftyAnswers()
-        setFiftyFifty(fiftyFifty + 1)
+        setFiftyFifty(1)
         document.getElementById(`${fiftyFiftyArray[0]}`).className = "QuestionLayout Answer Hide"
         document.getElementById(`${fiftyFiftyArray[1]}`).className = "QuestionLayout Answer Hide"
         document.getElementById("FiftyFiftyButton").className = "Lifeline Unavailable"
@@ -60,9 +99,44 @@ export function Lifelines({quizID, answer_1, answer_2, answer_3, answer_4, final
     }
 
     function handlePhoneAFriend(){
-        setPhoneFriend(phoneFriend + 1)
+        const string = phoneAFriendAnswers()
+        setPhoneFriend(1)
+        setPhoneFriendData(`${string}`)
         document.getElementById("PhoneAFriendWindow").style.visibility = "visible"
         document.getElementById("PhoneAFriendButton").className = "Lifeline Unavailable"
+    }
+
+    function phoneAFriendAnswers(){
+        const percentageOfCorrectAnswer = Math.floor(Math.random()*30)+70
+        const percentageOfWrongAnswers = (100 - percentageOfCorrectAnswer) / 3
+        
+        let a = parseInt(percentageOfWrongAnswers,10)
+        let b = parseInt(percentageOfWrongAnswers,10)
+        let c = parseInt(percentageOfWrongAnswers,10)
+        let d = parseInt(percentageOfWrongAnswers,10)
+
+        if(answer_1 === final_answer){a = percentageOfCorrectAnswer }
+        else if(answer_2 === final_answer){b = percentageOfCorrectAnswer }
+        else if(answer_3 === final_answer){c = percentageOfCorrectAnswer }
+        else if(answer_4 === final_answer){d = percentageOfCorrectAnswer }
+        
+        let answersArray =[{answer: `${answer_1}`, percentage: a},
+                                    {answer: `${answer_2}`, percentage: b},
+                                    {answer: `${answer_3}`, percentage: c},
+                                    {answer: `${answer_4}`, percentage: d}]
+
+        let temporaryArray = answersArray.sort(function (a, b){
+            return a.percentage - b.percentage
+        })
+
+        temporaryArray.reverse()
+
+        console.log(temporaryArray)
+
+        let string = JSON.stringify(temporaryArray)
+        
+        return string
+
     }
 
     useEffect(() => {

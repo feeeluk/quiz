@@ -8,6 +8,8 @@ import Image from "next/image"
 import { useUser } from "@clerk/nextjs"
 import { totalScore } from "../utils/context"
 import { currentQuestion } from "../utils/context"
+import { askTheAudienceData } from "../utils/context"
+import { phoneAFriendData } from "../utils/context"
 import { AddUser } from "./AddUser"
 import { UpdateLeaderboard } from "./UpdateLeaderboard"
 
@@ -20,8 +22,9 @@ export function Question({quizID, value, the_question, answer_1, answer_2, answe
 
     const {question, setQuestion} = useContext(currentQuestion)
     const {score, setScore} = useContext(totalScore)
+    const { askAudienceData, setAskAudienceData} = useContext(askTheAudienceData)
+    const { phoneFriendData, setPhoneFriendData} = useContext(phoneAFriendData)
 
-    
     const win = async () => {
         setScore(score + value)
         await AddUser(user.id, user.username)
@@ -87,10 +90,14 @@ export function Question({quizID, value, the_question, answer_1, answer_2, answe
                     
                     <div id="AskTheAudienceWindow">
                         <button onClick={ () =>{handleCloseAskTheAudienceWindow()}}>CLOSE</button>
+                        Ask The Audience
+                        {askAudienceData}
                     </div>
 
                     <div id="PhoneAFriendWindow">
                         <button onClick={ () =>{handleClosePhoneAFriendWindow()}}>CLOSE</button>
+                        Phone A Friend
+                        {phoneFriendData}
                     </div>
                 </div>
 

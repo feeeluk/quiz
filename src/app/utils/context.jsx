@@ -44,6 +44,19 @@ export function AskTheAudienceProvider({children}){
 
 // ********************************************************************
 
+export const askTheAudienceData = createContext(0)
+
+export function AskTheAudienceDataProvider({children}){
+    const [askAudienceData, setAskAudienceData] = useState("")
+    return(
+        <askTheAudienceData.Provider value={{askAudienceData, setAskAudienceData}}>
+            {children}
+        </askTheAudienceData.Provider>
+    )
+}
+
+// ********************************************************************
+
 export const fiftyFiftyContext = createContext(0)
 
 export function FiftyFiftyProvider({children}){
@@ -65,5 +78,18 @@ export function PhoneAFriendProvider({children}){
         <phoneAFriend.Provider value={{phoneFriend, setPhoneFriend}}>
             {children}
         </phoneAFriend.Provider>
+    )
+}
+
+// ********************************************************************
+
+export const phoneAFriendData = createContext()
+
+export function PhoneAFriendDataProvider({children}){
+    const [phoneFriendData, setPhoneFriendData] = useState("")
+    return(
+        <phoneAFriendData.Provider value={{phoneFriendData, setPhoneFriendData}}>
+            {children}
+        </phoneAFriendData.Provider>
     )
 }
