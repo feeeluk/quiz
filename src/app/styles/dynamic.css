@@ -92,13 +92,14 @@ font-weight: 400;
   position: relative;
 }
 
-    #AskTheAudienceWindow{
+    #AskTheAudienceWindow{  
       z-index: 2;
+      color: black;
       position: absolute;
       top: 10px;
       left: 10px;
       padding: 10px;
-      background-color: rgba(70, 65, 65, 0.8);
+      background-color: rgba(255, 255, 255, 0.85);
       width: 680px;
       height: 330px;
       border-radius: 5px;
@@ -107,16 +108,41 @@ font-weight: 400;
 
     #PhoneAFriendWindow{
       z-index: 2;
+      color: black;
       position: absolute;
       top: 10px;
       left: 10px;
       padding: 10px;
-      background-color: rgba(70, 65, 65, 0.800);
+      background-color: rgba(255, 255, 255, 0.85);
       width: 680px;
       height: 330px;
       border-radius: 5px;
       visibility: hidden;
     }
+
+    .LifelineWindow .FirstRow{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-bottom: 15px;
+    }
+
+      .LifelineWindow .Title {
+        display: inline;
+        font-weight: 700;
+      }
+
+      .LifelineWindow .Close, button{
+        display: inline;
+        padding-left: 3px;
+        padding-top: 1px;
+        padding-right: 2px;
+      }
+
+      .BarChart{
+        width: 660px;
+        height: 280px;
+      }
 
 .AnswerBox{
   width: 100%;

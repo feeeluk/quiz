@@ -4,7 +4,6 @@ import { currentQuestion } from "../utils/context"
 import { useContext } from "react"
 
 export function Scoreboard({roundDetails, currentRound}){
-
     const round = JSON.parse(roundDetails)
     const {question, setQuestion} = useContext(currentQuestion)
 

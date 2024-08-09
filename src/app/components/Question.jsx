@@ -8,22 +8,22 @@ import Image from "next/image"
 import { useUser } from "@clerk/nextjs"
 import { totalScore } from "../utils/context"
 import { currentQuestion } from "../utils/context"
-import { askTheAudienceData } from "../utils/context"
-import { phoneAFriendData } from "../utils/context"
 import { AddUser } from "./AddUser"
 import { UpdateLeaderboard } from "./UpdateLeaderboard"
+import AskTheAudienceChart from "@/app/components/BarChart/AskTheAudienceChart"
+import PhoneAFriendChart from "@/app/components/BarChart/PhoneAFriendChart"
+
 
 export function Question({quizID, value, the_question, answer_1, answer_2, answer_3, answer_4, final_answer, image}){
-
+    
     const router = useRouter()
     const { user } = useUser();
     
     const [answer, setAnswer] = useState(null)
-
+    
     const {question, setQuestion} = useContext(currentQuestion)
     const {score, setScore} = useContext(totalScore)
-    const { askAudienceData, setAskAudienceData} = useContext(askTheAudienceData)
-    const { phoneFriendData, setPhoneFriendData} = useContext(phoneAFriendData)
+
 
     const win = async () => {
         setScore(score + value)
@@ -86,19 +86,49 @@ export function Question({quizID, value, the_question, answer_1, answer_2, answe
                 </div>
             
                 <div className="QuestionImage">
+                    
                     <Image src={image} width={700} height={350} alt="question"  />
                     
-                    <div id="AskTheAudienceWindow">
-                        <button onClick={ () =>{handleCloseAskTheAudienceWindow()}}>CLOSE</button>
-                        Ask The Audience
-                        {askAudienceData}
+                    <div id="AskTheAudienceWindow" className="LifelineWindow">
+
+                        <div className="FirstRow">
+
+                            <div className="Title">
+                                Ask The Audience
+                            </div>
+
+                            <div className="Close">
+                                <button onClick={ () =>{handleCloseAskTheAudienceWindow()}}>X</button>
+                            </div>
+
+                        </div>
+
+                        <div className="Main">
+                            <AskTheAudienceChart />
+                        </div>
+
                     </div>
 
-                    <div id="PhoneAFriendWindow">
-                        <button onClick={ () =>{handleClosePhoneAFriendWindow()}}>CLOSE</button>
-                        Phone A Friend
-                        {phoneFriendData}
+                    <div id="PhoneAFriendWindow" className="LifelineWindow">
+                        
+                        <div className="FirstRow">
+                            
+                            <div className="Title">
+                                Phone A Friend
+                            </div>
+
+                            <div className="Close">
+                                <button onClick={ () =>{handleClosePhoneAFriendWindow()}}>X</button>
+                            </div>
+
+                        </div>
+
+                        <div className="Main">
+                            <PhoneAFriendChart />
+                        </div>
+
                     </div>
+
                 </div>
 
                 <div className="AnswerBox">

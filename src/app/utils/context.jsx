@@ -5,7 +5,7 @@ import { createContext } from "react"
 
 // ********************************************************************
 
-export const totalScore = createContext(0)
+export const totalScore = createContext()
 
 export function TotalScoreProvider({children}){
     const [score, setScore] = useState(0)
@@ -18,7 +18,7 @@ export function TotalScoreProvider({children}){
 
 // ********************************************************************
 
-export const currentQuestion = createContext(1)
+export const currentQuestion = createContext()
 
 export function CurrentQuestionProvider({children}){
     const [question, setQuestion] = useState(1)
@@ -31,7 +31,7 @@ export function CurrentQuestionProvider({children}){
 
 // ********************************************************************
 
-export const askTheAudience = createContext(0)
+export const askTheAudience = createContext()
 
 export function AskTheAudienceProvider({children}){
     const [askAudience, setAskAudience] = useState(0)
@@ -44,10 +44,10 @@ export function AskTheAudienceProvider({children}){
 
 // ********************************************************************
 
-export const askTheAudienceData = createContext(0)
+export const askTheAudienceData = createContext()
 
 export function AskTheAudienceDataProvider({children}){
-    const [askAudienceData, setAskAudienceData] = useState("")
+    const [askAudienceData, setAskAudienceData] = useState(null)
     return(
         <askTheAudienceData.Provider value={{askAudienceData, setAskAudienceData}}>
             {children}
@@ -57,7 +57,7 @@ export function AskTheAudienceDataProvider({children}){
 
 // ********************************************************************
 
-export const fiftyFiftyContext = createContext(0)
+export const fiftyFiftyContext = createContext()
 
 export function FiftyFiftyProvider({children}){
     const [fiftyFifty, setFiftyFifty] = useState(0)
@@ -70,7 +70,7 @@ export function FiftyFiftyProvider({children}){
 
 // ********************************************************************
 
-export const phoneAFriend = createContext(0)
+export const phoneAFriend = createContext()
 
 export function PhoneAFriendProvider({children}){
     const [phoneFriend, setPhoneFriend] = useState(0)
@@ -86,7 +86,7 @@ export function PhoneAFriendProvider({children}){
 export const phoneAFriendData = createContext()
 
 export function PhoneAFriendDataProvider({children}){
-    const [phoneFriendData, setPhoneFriendData] = useState("")
+    const [phoneFriendData, setPhoneFriendData] = useState(null)
     return(
         <phoneAFriendData.Provider value={{phoneFriendData, setPhoneFriendData}}>
             {children}
