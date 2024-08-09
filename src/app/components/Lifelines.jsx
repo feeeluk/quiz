@@ -48,7 +48,7 @@ export function Lifelines({quizID, answer_1, answer_2, answer_3, answer_4, final
     }
 
     function askTheAudienceAnswers(){
-        const percentageOfCorrectAnswer = Math.floor(Math.random()*30)+70
+        const percentageOfCorrectAnswer = Math.floor(Math.random()*60)+40
         const remaining1 = Math.floor(Math.random()*(100 - percentageOfCorrectAnswer))
         const remaining2 = Math.floor(Math.random()*(100 - (percentageOfCorrectAnswer + remaining1)))
         const remaining3 = 100 - (percentageOfCorrectAnswer + remaining1 + remaining2)
