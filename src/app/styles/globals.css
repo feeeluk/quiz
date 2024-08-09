@@ -42,7 +42,7 @@ a {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  visibility: visible;
+  visibility:visible
 }
 
 .LinksBar button{
