@@ -13,7 +13,7 @@ export function LeaderboardItem({id, username, quiz, category, status, score, pr
 
     return(
         <>       
-            <h5>User: {username}, Quiz: {quiz} ({category}), {status}, {score}pts, Completed round: {progress} <button onClick={()=> deleteRecord(id)}>x</button></h5>
+            <h5>ID: {id}, User: {username}, Quiz: {quiz} ({category}), {status}, {score}pts, Completed round: {progress} <button onClick={()=> deleteRecord(id)}>x</button></h5>
         </>
     )
 }
