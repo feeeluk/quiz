@@ -37,3 +37,17 @@
 .Leaderboard h5{
   margin-bottom: 3px;
 }
+
+/* LOSE */
+
+.Lose{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Lose p{
+  text-align: center;
+  margin-top: 15px;
+}
