@@ -41,7 +41,7 @@ export function Question({quizID, value, the_question, answer_1, answer_2, answe
     const lose = async () => {
         await AddUser(user.id, user.username)
         await UpdateLeaderboard(user.id, quizID, 3, score, question -1)
-        router.push("/lost")
+        router.push(`/lost?quiz=${quizID}&score=${score}&round=${question - 1}`)
     }
 
     function handleAnswer(selectedAnswer){
