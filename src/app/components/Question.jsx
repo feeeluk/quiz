@@ -26,10 +26,11 @@ export function Question({quizID, value, the_question, answer_1, answer_2, answe
 
 
     const win = async () => {
-        setScore(score + value)
+        const newScore = score + value
+        setScore(newScore)
         await AddUser(user.id, user.username)
-        await UpdateLeaderboard(user.id, quizID, 1, score, question)
-        router.push("/won")
+        await UpdateLeaderboard(user.id, quizID, 1, newScore, question)
+        router.push(`/won?quiz=${quizID}&score=${newScore}&round=${question}`)
     }
     
     const correct = () => {

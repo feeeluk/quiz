@@ -65,7 +65,6 @@ font-weight: 400;
 }
 
 .QuestionBar{
-  margin-top: 5px;
   height: 60px;
   display: flex;
   flex-direction: row;

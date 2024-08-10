@@ -32,7 +32,7 @@ export function Lifelines({quizID, answer_1, answer_2, answer_3, answer_4, final
     const userQuit = async () => {
         await AddUser(user.id, user.username)
         await UpdateLeaderboard(user.id, quizID, 2, score, question -1 )
-        router.push("/quit")
+        router.push(`/quit?quiz=${quizID}&score=${score}&round=${question - 1}`)
     }
 
     function handleQuit(){

@@ -57,6 +57,12 @@ a {
   cursor: pointer;
 }
 
+/* PAGE */
+
+.Title{
+  margin-bottom: 10px;
+}
+
 /* FOOTER */
 
 .Footer {

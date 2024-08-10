@@ -40,14 +40,14 @@
 
 /* LOSE */
 
-.Lose{
+.Result{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.Lose p{
+.Result p{
   text-align: center;
   margin-top: 15px;
 }
