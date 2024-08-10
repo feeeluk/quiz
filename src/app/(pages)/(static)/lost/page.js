@@ -11,7 +11,7 @@ export default function Lose({searchParams}){
 
             <div className="Lose">
                 <p>
-                    That was the wrong answer. Your progress be saved even though you lost (quiz: {searchParams.quiz}, score: {searchParams.score}, round: {searchParams.round}).
+                    That was the wrong answer. Your progress will be saved even though you lost (quiz: {searchParams.quiz}, score: {searchParams.score}, round: {searchParams.round}).
                 </p>
 
                 <p>
