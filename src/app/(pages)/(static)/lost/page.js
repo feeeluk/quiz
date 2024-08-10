@@ -15,18 +15,6 @@ export default function Lose({searchParams}){
 
             <p>
                 In a future release you will not lose your entire score as you will keep the score based on your last checkpoint (rounds 5 & 10).
-            </p>
-
-            <p>
-                <button>
-                    <Link href="/home">Home</Link>
-                </button>
-
-                &nbsp;
-
-                <button>
-                    <Link href="/home">Leaderboard</Link>
-                </button>
             </p>           
         </>
     )
