@@ -6,27 +6,31 @@ import { useContext } from "react"
 import { useRouter } from "next/navigation"
 import Image from "next/image"
 import { useUser } from "@clerk/nextjs"
-import { totalScore } from "../utils/context"
-import { currentQuestion } from "../utils/context"
-import { AddUser } from "./AddUser"
-import { UpdateLeaderboard } from "./UpdateLeaderboard"
+import { totalScore } from "@/app/utils/context"
+import { currentQuestion } from "@/app/utils/context"
+import { AddUser } from "@/app/components/AddUser"
+import { UpdateUserQuizzes } from "@/app/components/UpdateUserQuizzes"
+import AskTheAudienceChart from "@/app/components/BarChart/AskTheAudienceChart"
+import PhoneAFriendChart from "@/app/components/BarChart/PhoneAFriendChart"
+
 
 export function Question({quizID, value, the_question, answer_1, answer_2, answer_3, answer_4, final_answer, image}){
-
+    
     const router = useRouter()
     const { user } = useUser();
     
     const [answer, setAnswer] = useState(null)
-
+    
     const {question, setQuestion} = useContext(currentQuestion)
     const {score, setScore} = useContext(totalScore)
 
-    
+
     const win = async () => {
-        setScore(score + value)
+        const newScore = score + value
+        setScore(newScore)
         await AddUser(user.id, user.username)
-        await UpdateLeaderboard(user.id, quizID, 1, score, question)
-        router.push("/won")
+        await UpdateUserQuizzes(user.id, quizID, 1, newScore, question)
+        router.push(`/won?quiz=${quizID}&score=${newScore}&round=${question}`)
     }
     
     const correct = () => {
@@ -36,13 +40,39 @@ export function Question({quizID, value, the_question, answer_1, answer_2, answe
     }
     
     const lose = async () => {
+        const newScore = calculateCheckpointScore()
+        console.log(newScore)
         await AddUser(user.id, user.username)
-        await UpdateLeaderboard(user.id, quizID, 3, score, question -1)
-        router.push("/lost")
+        await UpdateUserQuizzes(user.id, quizID, 3, newScore, question -1)
+        router.push(`/lost?quiz=${quizID}&score=${newScore}&round=${question - 1}`)
     }
 
     function handleAnswer(selectedAnswer){
         setAnswer(selectedAnswer)
+    }
+
+    function handleCloseAskTheAudienceWindow(){
+        document.getElementById("AskTheAudienceWindow").style.visibility = "hidden"
+    }
+
+    function handleClosePhoneAFriendWindow(){
+        document.getElementById("PhoneAFriendWindow").style.visibility = "hidden"
+    }
+
+    function calculateCheckpointScore(){
+        
+        let newScore = 0
+
+        if(question > 10){
+            
+            newScore = 55
+        }
+
+        else if(question > 5){
+            newScore =15
+        }
+
+        return newScore
     }
     
     useEffect(() => {
@@ -75,7 +105,49 @@ export function Question({quizID, value, the_question, answer_1, answer_2, answe
                 </div>
             
                 <div className="QuestionImage">
+                    
                     <Image src={image} width={700} height={350} alt="question"  />
+                    
+                    <div id="AskTheAudienceWindow" className="LifelineWindow">
+
+                        <div className="FirstRow">
+
+                            <div className="Title">
+                                Ask The Audience
+                            </div>
+
+                            <div className="Close">
+                                <button onClick={ () =>{handleCloseAskTheAudienceWindow()}}>X</button>
+                            </div>
+
+                        </div>
+
+                        <div className="Main">
+                            <AskTheAudienceChart />
+                        </div>
+
+                    </div>
+
+                    <div id="PhoneAFriendWindow" className="LifelineWindow">
+                        
+                        <div className="FirstRow">
+                            
+                            <div className="Title">
+                                Phone A Friend
+                            </div>
+
+                            <div className="Close">
+                                <button onClick={ () =>{handleClosePhoneAFriendWindow()}}>X</button>
+                            </div>
+
+                        </div>
+
+                        <div className="Main">
+                            <PhoneAFriendChart />
+                        </div>
+
+                    </div>
+
                 </div>
 
                 <div className="AnswerBox">

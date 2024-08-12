@@ -1,10 +1,11 @@
 import { connect } from "@/app/utils/connect"
+import { LeaderboardItem } from "@/app/components/LeaderboardItem"
 
 export default async function Leaderboard(){
 
     const db = connect()
 
-    const leaderboard = (await db.query(`SELECT users.user_id AS user, users.user_username AS username, quizzes.quiz_name AS quiz, categories.category_name AS type, statuses.status_name AS status, user_quizzes.user_quiz_score AS score, user_quizzes.user_quiz_progress AS progress
+    const leaderboard = (await db.query(`SELECT user_quiz_id, users.user_id AS user, users.user_username AS username, quizzes.quiz_name AS quiz, categories.category_name AS type, statuses.status_name AS status, user_quizzes.user_quiz_score AS score, user_quizzes.user_quiz_progress AS progress
                                         
                                         FROM user_quizzes
 
@@ -25,14 +26,19 @@ export default async function Leaderboard(){
     return(
         
         <>
-            <h1>Leaderboard</h1>         
+            <h1>Leaderboard</h1>     
             
             <div className="Leaderboard">
                 {leaderboard.map((item) =>{
                     return(
-                    <div key={item.user}>
-                        <h5 key={item.user}>User: {item.username}, Quiz: {item.quiz} ({item.type}), {item.status}, {item.score}pts, Completed round: {item.progress}</h5>
-                    </div>
+                        <LeaderboardItem key={item.user} id={item.user_quiz_id}
+                                                                username={item.username}
+                                                                quiz={item.quiz}
+                                                                category={item.type}
+                                                                status={item.status}
+                                                                score={item.score}
+                                                                progress={item.progress}
+                                                                />
                     )
                 })}
             </div>

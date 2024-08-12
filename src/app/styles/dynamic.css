@@ -1,3 +1,7 @@
+/* .LinksBar{
+  visibility: hidden;
+} */
+
 .DynamicPage{
   margin: 0 auto 0;
   padding-left: 10px;
@@ -12,12 +16,15 @@
   align-items: center;
 }
 
+/* **************************************************************** */
 /* QUIZ */
 
 .QuizParent{
   display: flex;
   flex-direction: row;
 }
+
+/* Leaderboard */
 
 .QuizProgress{
   width: 250px;
@@ -48,6 +55,8 @@ font-weight: 400;
   box-shadow: 0 0 10px 1.5px #f701ff;
 }
 
+/* Question */
+
 .QuestionLayout{
   border: 1px solid white;
   padding: 4px;
@@ -56,7 +65,6 @@ font-weight: 400;
 }
 
 .QuestionBar{
-  margin-top: 5px;
   height: 60px;
   display: flex;
   flex-direction: row;
@@ -80,7 +88,60 @@ font-weight: 400;
 
 .QuestionImage{
   margin-bottom: 8px;
+  position: relative;
 }
+
+    #AskTheAudienceWindow{  
+      z-index: 2;
+      color: black;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      padding: 10px;
+      background-color: rgba(255, 255, 255, 0.85);
+      width: 680px;
+      height: 330px;
+      border-radius: 5px;
+      visibility: hidden;
+    }
+
+    #PhoneAFriendWindow{
+      z-index: 2;
+      color: black;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      padding: 10px;
+      background-color: rgba(255, 255, 255, 0.85);
+      width: 680px;
+      height: 330px;
+      border-radius: 5px;
+      visibility: hidden;
+    }
+
+    .LifelineWindow .FirstRow{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-bottom: 15px;
+    }
+
+      .LifelineWindow .Title {
+        display: inline;
+        font-weight: 700;
+      }
+
+      .LifelineWindow .Close, button{
+        display: inline;
+        padding-left: 3px;
+        padding-top: 1px;
+        padding-right: 2px;
+      }
+
+      .BarChart{
+        width: 660px;
+        height: 280px;
+      }
 
 .AnswerBox{
   width: 100%;
@@ -125,6 +186,8 @@ font-weight: 400;
   cursor: pointer;
 }
 
+/* Lifelines */
+
 .QuizOptions{
   display: flex;
   flex-direction: column;
@@ -164,11 +227,14 @@ font-weight: 400;
   cursor:not-allowed;
 }
 
-
 .Quit{
   width: 80px;
   height: 30px;
   font-family: inherit;
   font-size: 18px;
   margin-bottom: 10px;
+}
+
+.Quit:hover{
+  cursor: pointer;
 }

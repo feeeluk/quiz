@@ -14,9 +14,7 @@ export function Navbar(){
         <div className="Navbar">
           
             <div className="LogoContainer">
-              <Link href="/home">
                 <Image className="Logo" src="/logo.png" width={110} height={110} alt="logo" />
-              </Link>
             </div>
 
             <div className="LinksBar">

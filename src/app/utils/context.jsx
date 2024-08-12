@@ -5,7 +5,7 @@ import { createContext } from "react"
 
 // ********************************************************************
 
-export const totalScore = createContext(0)
+export const totalScore = createContext()
 
 export function TotalScoreProvider({children}){
     const [score, setScore] = useState(0)
@@ -18,7 +18,7 @@ export function TotalScoreProvider({children}){
 
 // ********************************************************************
 
-export const currentQuestion = createContext(1)
+export const currentQuestion = createContext()
 
 export function CurrentQuestionProvider({children}){
     const [question, setQuestion] = useState(1)
@@ -31,26 +31,65 @@ export function CurrentQuestionProvider({children}){
 
 // ********************************************************************
 
-export const askTheAudienceCount = createContext(0)
+export const askTheAudience = createContext()
 
 export function AskTheAudienceProvider({children}){
-    const [count, setCount] = useState(0)
+    const [askAudience, setAskAudience] = useState(0)
     return(
-        <askTheAudienceCount.Provider value={{count, setCount}}>
+        <askTheAudience.Provider value={{askAudience, setAskAudience}}>
             {children}
-        </askTheAudienceCount.Provider>
+        </askTheAudience.Provider>
     )
 }
 
 // ********************************************************************
 
-export const fiftyFiftyCount = createContext(0)
+export const askTheAudienceData = createContext()
+
+export function AskTheAudienceDataProvider({children}){
+    const [askAudienceData, setAskAudienceData] = useState(null)
+    return(
+        <askTheAudienceData.Provider value={{askAudienceData, setAskAudienceData}}>
+            {children}
+        </askTheAudienceData.Provider>
+    )
+}
+
+// ********************************************************************
+
+export const fiftyFiftyContext = createContext()
 
 export function FiftyFiftyProvider({children}){
-    const [count, setCount] = useState(0)
+    const [fiftyFifty, setFiftyFifty] = useState(0)
     return(
-        <fiftyFiftyCount.Provider value={{count, setCount}}>
+        <fiftyFiftyContext.Provider value={{fiftyFifty, setFiftyFifty}}>
             {children}
-        </fiftyFiftyCount.Provider>
+        </fiftyFiftyContext.Provider>
+    )
+}
+
+// ********************************************************************
+
+export const phoneAFriend = createContext()
+
+export function PhoneAFriendProvider({children}){
+    const [phoneFriend, setPhoneFriend] = useState(0)
+    return(
+        <phoneAFriend.Provider value={{phoneFriend, setPhoneFriend}}>
+            {children}
+        </phoneAFriend.Provider>
+    )
+}
+
+// ********************************************************************
+
+export const phoneAFriendData = createContext()
+
+export function PhoneAFriendDataProvider({children}){
+    const [phoneFriendData, setPhoneFriendData] = useState(null)
+    return(
+        <phoneAFriendData.Provider value={{phoneFriendData, setPhoneFriendData}}>
+            {children}
+        </phoneAFriendData.Provider>
     )
 }
