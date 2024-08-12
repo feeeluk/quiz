@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <div className="LandingPage">
       <Link href="/home">
-        <h1>Test - Landing Page</h1>
+        <h1>Landing Page - in a future release this will be cool, animated and funky</h1>
       </Link>
 
       <Link href="/home">
