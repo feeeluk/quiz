@@ -5,14 +5,15 @@ import { useEffect } from "react"
 import { useContext } from "react"
 import { useRouter } from "next/navigation"
 import { useUser } from "@clerk/nextjs"
-import { AddUser } from "./AddUser"
-import { UpdateLeaderboard } from "./UpdateLeaderboard"
-import { fiftyFiftyContext, totalScore } from "../utils/context"
-import { currentQuestion } from "../utils/context"
-import { askTheAudience } from "../utils/context"
-import { askTheAudienceData } from "../utils/context"
-import { phoneAFriend } from "../utils/context"
-import { phoneAFriendData } from "../utils/context"
+import { AddUser } from "@/app/components/AddUser"
+import { UpdateUserQuizzes } from "@/app/components/UpdateUserQuizzes"
+import { fiftyFiftyContext } from "@/app/utils/context"
+import { totalScore } from "@/app/utils/context"
+import { currentQuestion } from "@/app/utils/context"
+import { askTheAudience } from "@/app/utils/context"
+import { askTheAudienceData } from "@/app/utils/context"
+import { phoneAFriend } from "@/app/utils/context"
+import { phoneAFriendData } from "@/app/utils/context"
 
 export function Lifelines({quizID, answer_1, answer_2, answer_3, answer_4, final_answer}){
 
@@ -31,7 +32,7 @@ export function Lifelines({quizID, answer_1, answer_2, answer_3, answer_4, final
 
     const userQuit = async () => {
         await AddUser(user.id, user.username)
-        await UpdateLeaderboard(user.id, quizID, 2, score, question -1 )
+        await UpdateUserQuizzes(user.id, quizID, 2, score, question -1 )
         router.push(`/quit?quiz=${quizID}&score=${score}&round=${question - 1}`)
     }
 

@@ -29,7 +29,6 @@ export default function PhoneAFriendChart(){
     const { phoneFriendData, setPhoneFriendData} = useContext(phoneAFriendData)
     let answers = [{"answer":"", "percentage": 0},{"answer":"", "percentage": 0},{"answer":"", "percentage": 0},{"answer":"", "percentage": 0}]
     phoneFriendData ? answers = phoneFriendData : ""
-    console.log(answers)
 
     const [chartData, setChartData] = useState({
         datasets:[]

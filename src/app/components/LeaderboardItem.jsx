@@ -1,6 +1,6 @@
 "use client"
 
-import { LeaderboardDeleteItem } from "./LeaderboardDeleteItem"
+import { LeaderboardDeleteItem } from "@/app/components/LeaderboardDeleteItem"
 
 export function LeaderboardItem({id, username, quiz, category, status, score, progress}){
 

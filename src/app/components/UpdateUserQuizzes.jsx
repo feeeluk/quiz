@@ -1,8 +1,8 @@
 "use server"
 
-import { connect } from "../utils/connect"
+import { connect } from "@/app/utils/connect"
 
-export async function UpdateLeaderboard(userID, quizID, statusID, score, progress){
+export async function UpdateUserQuizzes(userID, quizID, statusID, score, progress){
 
     const db = connect()
 

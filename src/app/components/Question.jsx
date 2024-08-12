@@ -6,10 +6,10 @@ import { useContext } from "react"
 import { useRouter } from "next/navigation"
 import Image from "next/image"
 import { useUser } from "@clerk/nextjs"
-import { totalScore } from "../utils/context"
-import { currentQuestion } from "../utils/context"
-import { AddUser } from "./AddUser"
-import { UpdateLeaderboard } from "./UpdateLeaderboard"
+import { totalScore } from "@/app/utils/context"
+import { currentQuestion } from "@/app/utils/context"
+import { AddUser } from "@/app/components/AddUser"
+import { UpdateUserQuizzes } from "@/app/components/UpdateUserQuizzes"
 import AskTheAudienceChart from "@/app/components/BarChart/AskTheAudienceChart"
 import PhoneAFriendChart from "@/app/components/BarChart/PhoneAFriendChart"
 
@@ -29,7 +29,7 @@ export function Question({quizID, value, the_question, answer_1, answer_2, answe
         const newScore = score + value
         setScore(newScore)
         await AddUser(user.id, user.username)
-        await UpdateLeaderboard(user.id, quizID, 1, newScore, question)
+        await UpdateUserQuizzes(user.id, quizID, 1, newScore, question)
         router.push(`/won?quiz=${quizID}&score=${newScore}&round=${question}`)
     }
     
@@ -40,9 +40,11 @@ export function Question({quizID, value, the_question, answer_1, answer_2, answe
     }
     
     const lose = async () => {
+        const newScore = calculateCheckpointScore()
+        console.log(newScore)
         await AddUser(user.id, user.username)
-        await UpdateLeaderboard(user.id, quizID, 3, score, question -1)
-        router.push(`/lost?quiz=${quizID}&score=${score}&round=${question - 1}`)
+        await UpdateUserQuizzes(user.id, quizID, 3, newScore, question -1)
+        router.push(`/lost?quiz=${quizID}&score=${newScore}&round=${question - 1}`)
     }
 
     function handleAnswer(selectedAnswer){
@@ -55,6 +57,22 @@ export function Question({quizID, value, the_question, answer_1, answer_2, answe
 
     function handleClosePhoneAFriendWindow(){
         document.getElementById("PhoneAFriendWindow").style.visibility = "hidden"
+    }
+
+    function calculateCheckpointScore(){
+        
+        let newScore = 0
+
+        if(question > 10){
+            
+            newScore = 55
+        }
+
+        else if(question > 5){
+            newScore =15
+        }
+
+        return newScore
     }
     
     useEffect(() => {
