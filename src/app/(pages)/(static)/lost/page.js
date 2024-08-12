@@ -13,7 +13,7 @@ export default function Lose({searchParams}){
 
             <div className="Result">
                 <p>That was the wrong answer!!</p>
-                <p>Your progress will be saved, however you only keep the score of your last checkpoint.</p>
+                <p>Your progress has been saved, however you only keep the score of your last checkpoint.</p>
                 <p>Quiz: {searchParams.quiz}, Score: {searchParams.score}, Round: {searchParams.round}</p>
             </div>           
         </>
