@@ -1,7 +1,7 @@
 import Image from "next/image"
 import { Hover } from "./animations/Hover"
 
-export function Quiz({name, category, image}){
+export function QuizCard({name, category, image}){
     return(
         <Hover>
             <div className="QuizCardComponent">

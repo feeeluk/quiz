@@ -26,7 +26,9 @@ export default async function Leaderboard(){
     return(
         
         <>
-            <h1>Leaderboard</h1>     
+            <div className="Title">
+                <h1>Leaderboard</h1>
+            </div> 
             
             <div className="Leaderboard">
                 {leaderboard.map((item) =>{

@@ -1,7 +1,8 @@
-import { connect } from "@/app/utils/connect"
-import { Quiz } from "@/app/components/Quiz"
 import Link from "next/link"
 import { SignedOut } from '@clerk/nextjs'
+import { connect } from "@/app/utils/connect"
+import { QuizCard } from "@/app/components/QuizCard"
+import { QuizFilterSort } from "@/app/components/QuizFilterSort"
 
 export default async function Home(){
 
@@ -20,20 +21,30 @@ export default async function Home(){
 
             <SignedOut>
                 <div className="PageMessage">
-                    <p>You must be logged in to play</p>
+                    <p>** You must be signed in to play **</p>
                 </div>
             </SignedOut>
+
+            
             
             <div className="AllQuizzes">
-                {quizzes.map( (quiz) => {
-                return(
-                    <div key={quiz.quiz_id}>
-                        <Link href={`quiz/${quiz.quiz_id}/1`}>
-                            <Quiz key={quiz.quiz_id} name={quiz.quiz_name} category={quiz.category_name} image={quiz.category_image}/>
-                        </Link>
-                    </div>
-                    )
-                })}
+
+                <div className="FilterSortBar">
+                    <QuizFilterSort />
+                </div>
+
+                <div className="QuizCards">
+                    {quizzes.map( (quiz) => {
+                    return(
+                        <div key={quiz.quiz_id}>
+                            <Link href={`quiz/${quiz.quiz_id}/1`}>
+                                <QuizCard key={quiz.quiz_id} name={quiz.quiz_name} category={quiz.category_name} image={quiz.category_image}/>
+                            </Link>
+                        </div>
+                        )
+                    })}
+                </div>
+                
             </div>
             
         </>
