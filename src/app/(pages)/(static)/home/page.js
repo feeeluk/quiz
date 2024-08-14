@@ -22,8 +22,18 @@ export default async function Home({searchParams}){
                                     ${filter}
                                     ORDER BY ${sort} ${order}`)).rows
 
+    let quizNames = (await db.query(`SELECT quizzes.quiz_name
+                                        FROM quizzes`)).rows
+
+    let categories = (await db.query(`SELECT category_name
+                                        FROM categories`)).rows
+    
+    quizNames = JSON.stringify(quizNames)
+    categories = JSON.stringify(categories)
+
     return(
         <>
+
             <div className="Title">
                 <h1>Home</h1>
             </div>
@@ -32,14 +42,12 @@ export default async function Home({searchParams}){
                 <div className="PageMessage">
                     <p>** You must be signed in to play **</p>
                 </div>
-            </SignedOut>
-
-            
+            </SignedOut>     
             
             <div className="AllQuizzes">
 
                 <div className="FilterSortBar">
-                    <QuizFilterSort />
+                    <QuizFilterSort quizzes={quizNames} categories={categories} />
                 </div>
                 
 
