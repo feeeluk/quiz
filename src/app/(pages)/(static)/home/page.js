@@ -13,7 +13,6 @@ export default async function Home({searchParams}){
     if(searchParams.filterBy === " "){filter = ``}
     else if(searchParams.filterBy !== " "){filter = `WHERE quiz_id = ${searchParams.filterBy}`}
 
-
     const db = connect()
 
     const quizzes = (await db.query(`SELECT quizzes.quiz_id, quizzes.quiz_name, categories.category_name, categories.category_image
