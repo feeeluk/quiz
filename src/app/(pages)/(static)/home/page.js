@@ -4,14 +4,24 @@ import { connect } from "@/app/utils/connect"
 import { QuizCard } from "@/app/components/QuizCard"
 import { QuizFilterSort } from "@/app/components/QuizFilterSort"
 
-export default async function Home(){
+export default async function Home({searchParams}){
+
+    let filter = ``
+    let sort = `${searchParams.sortBy}`
+    let order = `${searchParams.orderBy}`
+    
+    if(searchParams.filterBy === " "){filter = ``}
+    else if(searchParams.filterBy !== " "){filter = `WHERE quiz_id = ${searchParams.filterBy}`}
+
 
     const db = connect()
 
     const quizzes = (await db.query(`SELECT quizzes.quiz_id, quizzes.quiz_name, categories.category_name, categories.category_image
                                     FROM quizzes
                                     JOIN categories
-                                    ON quizzes.quiz_category_id = category_id`)).rows
+                                    ON quizzes.quiz_category_id = category_id
+                                    ${filter}
+                                    ORDER BY ${sort} ${order}`)).rows
 
     return(
         <>
@@ -32,6 +42,7 @@ export default async function Home(){
                 <div className="FilterSortBar">
                     <QuizFilterSort />
                 </div>
+                
 
                 <div className="QuizCards">
                     {quizzes.map( (quiz) => {
