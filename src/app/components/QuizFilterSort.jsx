@@ -9,8 +9,8 @@ export function QuizFilterSort({quizzes, categories}){
     const quizNames = JSON.parse(quizzes)
     const categoryNames = JSON.parse(categories)
 
-    function handleFilterBy(){
-        router.push("/")
+    function handleFilterByCategory(event){
+        router.push(`/home?filterByCategory='${event.target.value}'`)
     }
     
     function handleSortBy(){}
@@ -18,24 +18,22 @@ export function QuizFilterSort({quizzes, categories}){
 
     return(
         <>
-            {/* {console.log(quizNames)}
-            {quizNames.map( (item) => {
-                return(
-                    <>name: {item.quiz_name}</>
-                )
-            })} */}
+            
 
 
             <form>
 
-                <label htmlFor="filterBy">Filter: </label>
+                <label htmlFor="filterByCategory">Category: </label>
                 
-                <select name="filterBy" onChange={() => {
-                    handleFilterBy()
-                }}>
-                    <option value="none">None</option>
-                    <option value="name">Name</option>
-                    <option value="category">Category</option>
+                <select name="filterByCategory" className="fliterByCategory" onChange={handleFilterByCategory}>
+                    <option defaultValue="all">All</option>
+
+                    {categoryNames.map( (category) => {
+                        return(
+                        <option key={category.category_name} value={category.category_name}>{category.category_name}</option>
+                        )
+                    })}                  
+                    
                 </select>
 
             </form>

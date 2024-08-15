@@ -6,12 +6,12 @@ import { QuizFilterSort } from "@/app/components/QuizFilterSort"
 
 export default async function Home({searchParams}){
 
-    let filter = ``
-    let sort = `${searchParams.sortBy}`
-    let order = `${searchParams.orderBy}`
+    let filterByCategory = ``
+    let sortBy = `quiz_name`
+    let orderBy = `asc`
     
-    if(searchParams.filterBy === " "){filter = ``}
-    else if(searchParams.filterBy !== " "){filter = `WHERE quiz_id = ${searchParams.filterBy}`}
+    if(!searchParams.filterByCategory || searchParams.filterByCategory === " " || searchParams.filterByCategory === "all"){filterByCategory = ``}
+    else if(searchParams.filterByCategory !== " "){filterByCategory = `WHERE category_name = ${searchParams.filterByCategory}`}
 
     const db = connect()
 
@@ -19,8 +19,8 @@ export default async function Home({searchParams}){
                                     FROM quizzes
                                     JOIN categories
                                     ON quizzes.quiz_category_id = category_id
-                                    ${filter}
-                                    ORDER BY ${sort} ${order}`)).rows
+                                    ${filterByCategory}
+                                    ORDER BY ${sortBy} ${orderBy}`)).rows
 
     let quizNames = (await db.query(`SELECT quizzes.quiz_name
                                         FROM quizzes`)).rows
