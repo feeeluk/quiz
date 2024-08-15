@@ -7,19 +7,40 @@ import { QuizFilterSort } from "@/app/components/QuizFilterSort"
 export default async function Home({searchParams}){
 
     let filterByCategory = ``
-    let sortBy = `quiz_name`
-    let orderBy = `asc`
+    let sortBy = ``
+    let orderBy = ``
     
-    if(!searchParams.filterByCategory || searchParams.filterByCategory == "'all'")
+    if(!searchParams.filterByCategory || searchParams.filterByCategory == "all")
         {
             filterByCategory = ``
         }
 
     else if(searchParams.filterByCategory !== " ")
         {
-                filterByCategory = `WHERE category_name = ${searchParams.filterByCategory}`
+                filterByCategory = `WHERE category_name = '${searchParams.filterByCategory}'`
         }
 
+    if(!searchParams.sortBy || searchParams.sortBy == 'quiz_name')
+        {
+            sortBy = `quiz_name`
+        }
+
+    else if(searchParams.sortBy == 'category_name')
+        {
+                sortBy = 'category_name'
+        }
+    
+    if(!searchParams.orderBy || searchParams.orderBy == 'asc')
+        {
+            orderBy = `asc`
+        }
+
+    else if(searchParams.orderBy == 'desc')
+        {
+                orderBy = `desc`
+        }
+
+    console.log(sortBy)
     const db = connect()
 
     const quizzes = (await db.query(`SELECT quizzes.quiz_id, quizzes.quiz_name, categories.category_name, categories.category_image
@@ -40,7 +61,6 @@ export default async function Home({searchParams}){
 
     return(
         <>
-
             <div className="Title">
                 <h1>Home</h1>
             </div>
