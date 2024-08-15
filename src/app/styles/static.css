@@ -1,75 +1,72 @@
 .StaticPage{
-  margin: 0 auto 0;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 10px;
-  padding-bottom: 15px;
-  width: 1000px;
-  height: 77vh;
   display: flex;
   flex-direction: column;
-  justify-content:left;
-  align-items: center;
+  max-width: 900px;
 }
 
-/* HOMEPAGE */
+/* .Title (see global .css) */
 
-.AllQuizzes{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-}
+/* .PageMessage (see global .css) */
 
-.FilterSortBar{
-  display: inline;
-  margin-bottom: 10px;
-  padding-left: 5px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
-  font-size: 12px;
-}
+      /* HOMEPAGE */
+      /* ************************************************ */
+      
+      .FilterSortBar{
+        display: inline;
+        margin-bottom: 10px;
+        padding-left: 5px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+        font-size: 12px;
+      }
 
-.FilterSortBar select{
-  font-size: 12px;
-}
+      .FilterSortBar select{
+        font-size: 12px;
+      }
 
-.QuizCards{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
+      .AllQuizzes{
+        display: flex;
+        flex-direction: row;
+      }
 
-.QuizCardComponent{
-  width: 200px;
-  padding: 5px;
-  margin: 5px;
-  border-radius: 5px;
-  background-color: rgba(44, 75, 177, 0.801);
-}
+      .QuizCards{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
 
-/* LEADERBOARD */
+      .QuizCardComponent{
+        width: 200px;
+        padding: 5px;
+        margin: 5px;
+        border-radius: 5px;
+        background-color: rgba(44, 75, 177, 0.801);
+      }
 
-.Leaderboard button {
-  display: inline;
-}
+      /* LEADERBOARD */
+      /* ************************************************ */
 
-.Leaderboard h5{
-  margin-bottom: 3px;
-}
+      .Leaderboard button {
+        display: inline;
+      }
 
-/* LOSE */
+      .Leaderboard h5{
+        margin-bottom: 3px;
+      }
 
-.Result{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+      /* LOSE */
+      /* ************************************************ */
 
-.Result p{
-  text-align: center;
-  margin-top: 15px;
-}
+      .Result{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .Result p{
+        text-align: center;
+        margin-top: 15px;
+      }

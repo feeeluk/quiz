@@ -1,14 +1,16 @@
-* {
+*{
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
-body {
-  max-width: 100vw;
+body{
   color: white;
   background: rgb(22,17,98);
   background: radial-gradient(circle, rgba(22,17,98,1) 0%, rgba(30,5,145,1) 47%, rgba(61,80,221,1) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 a {
@@ -22,6 +24,7 @@ a {
   width: 100vw;
   background: rgb(22,17,98);
   background: radial-gradient(circle, rgba(22,17,98,1) 0%, rgba(30,5,145,1) 47%, rgba(61,80,221,1) 100%);
+  /* background-color: green; */
 }
 
 .Navbar{
@@ -61,6 +64,7 @@ a {
 
 .Title{
   margin-bottom: 10px;
+  text-align: center;
 }
 
 .PageMessage{

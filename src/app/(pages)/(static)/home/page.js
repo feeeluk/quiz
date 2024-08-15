@@ -71,12 +71,12 @@ export default async function Home({searchParams}){
                 </div>
             </SignedOut>     
             
-            <div className="AllQuizzes">
 
-                <div className="FilterSortBar">
-                    <QuizFilterSort quizzes={quizNames} categories={categories} />
-                </div>
+            <div className="FilterSortBar">
+                <QuizFilterSort quizzes={quizNames} categories={categories} />
+            </div>
                 
+            <div className="AllQuizzes">
 
                 <div className="QuizCards">
                     {quizzes.map( (quiz) => {
