@@ -18,7 +18,7 @@ export function Navbar(){
             </div>
 
             <div className="LinksBar">
-              <Link href="/home?filterBy=%20&sortBy=quiz_name&orderBy=asc">Home</Link>
+              <Link href="/home">Home</Link>
               &nbsp;|&nbsp;
               <Link href="/about">About</Link>
               &nbsp;|&nbsp;

@@ -19,14 +19,12 @@ export function QuizFilterSort({quizzes, categories}){
     return(
         <>
             
-
-
             <form>
 
                 <label htmlFor="filterByCategory">Category: </label>
                 
                 <select name="filterByCategory" className="fliterByCategory" onChange={handleFilterByCategory}>
-                    <option defaultValue="all">All</option>
+                    <option value="all">All</option>
 
                     {categoryNames.map( (category) => {
                         return(

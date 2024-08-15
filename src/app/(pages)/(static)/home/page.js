@@ -10,8 +10,15 @@ export default async function Home({searchParams}){
     let sortBy = `quiz_name`
     let orderBy = `asc`
     
-    if(!searchParams.filterByCategory || searchParams.filterByCategory === " " || searchParams.filterByCategory === "all"){filterByCategory = ``}
-    else if(searchParams.filterByCategory !== " "){filterByCategory = `WHERE category_name = ${searchParams.filterByCategory}`}
+    if(!searchParams.filterByCategory || searchParams.filterByCategory == "'all'")
+        {
+            filterByCategory = ``
+        }
+
+    else if(searchParams.filterByCategory !== " ")
+        {
+                filterByCategory = `WHERE category_name = ${searchParams.filterByCategory}`
+        }
 
     const db = connect()
 
