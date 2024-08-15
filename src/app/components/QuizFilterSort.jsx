@@ -38,10 +38,11 @@ export function QuizFilterSort({quizzes, categories}){
             
             <form id="filterSortForm" action={handleSubmit}>
 
-                <label htmlFor="filterByCategory">Category: </label>
+                <label htmlFor="filterByCategory">category: </label>
                 
                 <select name="filterByCategory" onChange={handleFilterByCategory}>
-                    <option value="all">All</option>
+                    
+                    <option value="all">all</option>
 
                     {categoryNames.map( (category) => {
                         return(
@@ -53,20 +54,20 @@ export function QuizFilterSort({quizzes, categories}){
 
             &nbsp;
 
-                <label htmlFor="sortBy">Sort: </label>
+                <label htmlFor="sortBy">sort: </label>
                 
                 <select name="sortBy" onChange={handleSortBy}>
-                    <option value="quiz_name">Name</option>
-                    <option value="category_name">Category</option>
+                    <option value="quiz_name">name</option>
+                    <option value="category_name">category</option>
                 </select>
 
             &nbsp;
 
-                <label htmlFor="orderBy">Order: </label>
+                <label htmlFor="orderBy">order: </label>
                 
                 <select name="orderBy" onChange={handleOrderBy}>
-                    <option value="asc">Ascending</option>
-                    <option value="desc">Descending</option>
+                    <option value="asc">ascending</option>
+                    <option value="desc">descending</option>
                 </select>
 
             </form>
