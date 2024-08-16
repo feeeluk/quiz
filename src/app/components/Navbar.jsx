@@ -18,7 +18,7 @@ export function Navbar(){
             </div>
 
             <div className="LinksBar">
-              <Link href="/home">Home</Link>
+              <Link href="/">Home</Link>
               &nbsp;|&nbsp;
               <Link href="/about">About</Link>
               &nbsp;|&nbsp;

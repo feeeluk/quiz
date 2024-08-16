@@ -19,12 +19,12 @@ a {
 }
 
 /* NavBar */
+/* *************************************** */
 
 .Navbar, .Footer{
   width: 100vw;
   background: rgb(22,17,98);
   background: radial-gradient(circle, rgba(22,17,98,1) 0%, rgba(30,5,145,1) 47%, rgba(61,80,221,1) 100%);
-  /* background-color: green; */
 }
 
 .Navbar{
@@ -61,6 +61,13 @@ a {
 }
 
 /* PAGE */
+/* *************************************** */
+
+.Page{
+  display: flex;
+  flex-direction: column;
+  max-width: 900px;
+}
 
 .Title{
   margin-bottom: 10px;
@@ -74,6 +81,7 @@ a {
   text-align: center;
 }
 /* FOOTER */
+/* *************************************** */
 
 .Footer {
   border-top: 3px outset #5877E3;
@@ -84,18 +92,65 @@ a {
   font-size: 12px;
 }
 
-/* LANDING PAGE */
+      /* HOMEPAGE */
+      /* ************************************************ */
+      
+      .FilterSortBar{
+        display: inline;
+        margin-bottom: 10px;
+        padding-left: 5px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+        font-size: 12px;
+      }
 
-.LandingPage{
-  margin: 0 auto 0;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 10px;
-  padding-bottom: 15px;
-  width: 1000px;
-  height: 77vh;
-  display: flex;
-  flex-direction: column;
-  justify-content:left;
-  align-items: center;
-}
+      .FilterSortBar select{
+        font-size: 12px;
+      }
+
+      .AllQuizzes{
+        display: flex;
+        flex-direction: row;
+      }
+
+      .QuizCards{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .QuizCardComponent{
+        width: 200px;
+        padding: 5px;
+        margin: 5px;
+        border-radius: 5px;
+        background-color: rgba(44, 75, 177, 0.801);
+      }
+
+      /* LEADERBOARD */
+      /* ************************************************ */
+
+      .Leaderboard button {
+        display: inline;
+      }
+
+      .Leaderboard h5{
+        margin-bottom: 3px;
+      }
+
+      /* LOSE */
+      /* ************************************************ */
+
+      .Result{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .Result p{
+        text-align: center;
+        margin-top: 15px;
+      }
