@@ -51,9 +51,9 @@
 
   .Navbar, .Footer{
     width: 100vw;
-    background-color: purple;
-    /* background: rgb(22,17,98);
-    background: radial-gradient(circle, rgba(22,17,98,1) 0%, rgba(30,5,145,1) 47%, rgba(61,80,221,1) 100%); */
+    /* background-color: purple; */
+    background: rgb(22,17,98);
+    background: radial-gradient(circle, rgba(22,17,98,1) 0%, rgba(30,5,145,1) 47%, rgba(61,80,221,1) 100%);
   }
 
   .Navbar{
