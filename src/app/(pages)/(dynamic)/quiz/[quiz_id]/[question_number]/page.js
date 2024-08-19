@@ -2,15 +2,13 @@ import { connect } from "@/app/utils/connect"
 import { Scoreboard } from "@/app/components/Scoreboard"
 import { Question } from "@/app/components/Question"
 import { Lifelines } from "@/app/components/Lifelines"
-import { useContext } from "react"
-import { currentQuestion } from "@/app/utils/context"
+import { redirect } from "next/navigation"
 
-export default async function Quiz({params, searchParams}){
+export default async function Quiz({params}){
 
     const db = connect()
     const quiz = params.quiz_id  
     const question = params.question_number
-    const score = searchParams.score
 
     const roundDetails = (await db.query(`SELECT questions.question_number
                                         FROM quizzes
@@ -29,6 +27,10 @@ export default async function Quiz({params, searchParams}){
                                         ORDER BY questions.question_id DESC`, [quiz, question])).rows[0]
 
     let string = JSON.stringify(roundDetails)
+
+    if(!quizDetails){
+        redirect("/404")   
+    }
 
     return(
         <>        
