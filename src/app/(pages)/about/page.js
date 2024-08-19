@@ -1,7 +1,9 @@
 export default function About(){
     return(
         <>
-            <h1>About</h1>
+            <div className="Title">
+                <h1>About</h1>
+            </div>
 
             <div>
                 <p>The orignial version of Who wants to be a peasant? was created in React as an end of term showcase project by Hannah Carter, William Stanforth-Sharpe and myself.</p>
