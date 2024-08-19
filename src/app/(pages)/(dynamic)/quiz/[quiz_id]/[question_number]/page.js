@@ -29,7 +29,7 @@ export default async function Quiz({params}){
     let string = JSON.stringify(roundDetails)
 
     if(!quizDetails){
-        redirect("/404")   
+        redirect("/notFound")   
     }
 
     return(
