@@ -144,13 +144,13 @@ export function Lifelines({quizID, answer_1, answer_2, answer_3, answer_4, final
         // Has Lifeline (50:50) been used?
         if(fiftyFifty === 1){
             document.getElementById("FiftyFiftyButton").className = "Lifeline Unavailable"
-            document.getElementById("AskTheAudienceButton").disabled = true
+            document.getElementById("FiftyFiftyButton").disabled = true
         }
 
         // Has Lifeline (Phone A Friend) been used?
         if(phoneFriend === 1){
             document.getElementById("PhoneAFriendButton").className = "Lifeline Unavailable"
-            document.getElementById("AskTheAudienceButton").disabled = true
+            document.getElementById("PhoneAFriendButton").disabled = true
         }
 
     },[quit])
