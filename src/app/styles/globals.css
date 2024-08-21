@@ -147,76 +147,6 @@ a {
     margin-bottom: 5px;
   }
 
-  /* HOMEPAGE */
-  /* ************************************************ */
-
-  /* .FilterSortBar{
-    margin-bottom: 10px;
-    padding-left: 5px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 350px;   
-  } */
-
-  /* .FilterSortBar select{
-    font-size: 10px;
-  } */
-
-  /* .AllQuizzes{
-    display: flex;
-    flex-direction: row;
-    width: 300px;
-  } */
-
-  /* .QuizCards{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  } */
-
-  /* .QuizCardComponent{
-    min-height: 120px;
-    width: 120px;
-    padding: 5px;
-    margin: 5px;
-    border-radius: 5px;
-    background-color: rgba(44, 75, 177, 0.801);
-    text-align: center;
-  } */
-
-  
-  /* .QuizCardComponentImage{
-    width: 110px;
-    height: 70px;
-    position: relative;
-  } */
-
-  /* LEADERBOARD */
-  /* ************************************************ */
-
-  /* .Leaderboard button {
-    display: inline;
-  }
-
-  .Leaderboard h5{
-    margin-bottom: 3px;
-  } */
-
-  /* LOSE */
-  /* ************************************************ */
-
-  /* .Result{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .Result p{
-    text-align: center;
-    margin-top: 15px;
-  } */
 }
 
 /* **************************************************************************** */
@@ -226,7 +156,7 @@ a {
 
   h1{
     padding: 10px;
-    padding-bottom: 5px;
+    /* padding-bottom: 5px; */
   }
 
   /* h2{
