@@ -1,10 +1,10 @@
-import Link from "next/link"
 import Image from "next/image"
-
 
 export default function Lose({searchParams}){
     return(
-        <>
+
+        <div className="StandardLayout">
+
             <div className="Title">
                 <h1>Wrong answer</h1>
             </div>
@@ -15,7 +15,8 @@ export default function Lose({searchParams}){
                 <p>That was the wrong answer!!</p>
                 <p>Your progress has been saved, however you only keep the score of your last checkpoint.</p>
                 <p>Quiz: {searchParams.quiz}, Score: {searchParams.score}, Round: {searchParams.round}</p>
-            </div>           
-        </>
+            </div>
+
+        </div>
     )
 }

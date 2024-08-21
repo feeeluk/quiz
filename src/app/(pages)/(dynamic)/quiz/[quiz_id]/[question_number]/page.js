@@ -35,60 +35,59 @@ export default async function TestQuiz({params}){
     }
 
     return(
-        <>
-            <div className="QuizLayout">
+        
+        <div className="QuizLayout">
+        
+            <div className="GridTitleBefore"></div>
             
-                <div className="GridTitleBefore"></div>
-                
-                <div className="GridTitle">
-                    <div className="Title">
-                        <h1>{quizDetails.quiz_name} ({quizDetails.category_name})</h1>
-                    </div>
+            <div className="GridTitle">
+                <div className="Title">
+                    <h1>{quizDetails.quiz_name} ({quizDetails.category_name})</h1>
                 </div>
+            </div>
 
-                <div className="GridTitleAfter"></div>
+            <div className="GridTitleAfter"></div>
 
-                <div className="QuestionBefore"></div>
-                
-                <div className="Question">
-                    <QuestionDetails the_question={quizDetails.question_question} />
-                </div>
-                
-                <div className="QuestionAfter"></div>
-                
-                <div className="Progress">
-                    <Scoreboard  roundDetails={string} currentRound={question} />
-                </div>
-                
-                <div className="Image">
-                    <QuestionImage image={quizDetails.question_image} />
-                </div>
-                
-                <div className="Lifelines">
-                    <Lifelines quizID={quiz}
-                            answer_1={quizDetails.question_answer_1} 
-                            answer_2={quizDetails.question_answer_2} 
-                            answer_3={quizDetails.question_answer_3} 
-                            answer_4={quizDetails.question_answer_4} 
-                            final_answer={quizDetails.question_final_answer} 
-                            />
-                </div>
-                
-                <div className="Answers">
-                    <QuestionAnswers quizID={quiz}
-                            value={quizDetails.question_value} 
-                            answer_1={quizDetails.question_answer_1} 
-                            answer_2={quizDetails.question_answer_2} 
-                            answer_3={quizDetails.question_answer_3} 
-                            answer_4={quizDetails.question_answer_4} 
-                            final_answer={quizDetails.question_final_answer} 
-                            />
-                </div>
-                
-                <div className="AnswerAfter"></div>
-
+            <div className="QuestionBefore"></div>
+            
+            <div className="Question">
+                <QuestionDetails the_question={quizDetails.question_question} />
             </div>
             
-        </>
+            <div className="QuestionAfter"></div>
+            
+            <div className="Progress">
+                <Scoreboard  roundDetails={string} currentRound={question} />
+            </div>
+            
+            <div className="Image">
+                <QuestionImage image={quizDetails.question_image} />
+            </div>
+            
+            <div className="Lifelines">
+                <Lifelines quizID={quiz}
+                        answer_1={quizDetails.question_answer_1} 
+                        answer_2={quizDetails.question_answer_2} 
+                        answer_3={quizDetails.question_answer_3} 
+                        answer_4={quizDetails.question_answer_4} 
+                        final_answer={quizDetails.question_final_answer} 
+                        />
+            </div>
+            
+            <div className="Answers">
+                <QuestionAnswers quizID={quiz}
+                        value={quizDetails.question_value} 
+                        answer_1={quizDetails.question_answer_1} 
+                        answer_2={quizDetails.question_answer_2} 
+                        answer_3={quizDetails.question_answer_3} 
+                        answer_4={quizDetails.question_answer_4} 
+                        final_answer={quizDetails.question_final_answer} 
+                        />
+            </div>
+            
+            <div className="AnswerAfter"></div>
+
+        </div>
+
     )
 }

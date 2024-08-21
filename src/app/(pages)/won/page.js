@@ -1,9 +1,10 @@
-import Link from "next/link"
 import Image from "next/image"
 
 export default function Win({searchParams}){
     return(
-        <>
+        
+        <div className="StandardLayout">
+
             <div className="Title">
                 <h1>WIN! Congratulations, you have won!</h1>
             </div>
@@ -14,8 +15,8 @@ export default function Win({searchParams}){
                 <p>
                     Your progress has been saved (quiz: {searchParams.quiz}, score: {searchParams.score}, round: {searchParams.round}).
                 </p>
+            </div>
 
-            </div>               
-        </>
+        </div>
     )
 }

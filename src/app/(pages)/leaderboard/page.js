@@ -25,7 +25,8 @@ export default async function Leaderboard(){
 
     return(
         
-        <>
+        <div className="StandardLayout">
+            
             <div className="Title">
                 <h1>Leaderboard</h1>
             </div> 
@@ -45,6 +46,6 @@ export default async function Leaderboard(){
                 })}
             </div>
 
-        </>
+        </div>
     )
 }
