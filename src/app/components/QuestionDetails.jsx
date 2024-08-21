@@ -12,15 +12,12 @@ export function QuestionDetails({the_question}){
         <div className="QuestionLayout">
             
             <div className="QuestionWord">
-                QUESTION: &nbsp;
+                <p>QUESTION:</p>
+                <p>{question} / 15</p>
             </div>
             
             <div className="TheQuestion">
                 {the_question}
-            </div>
-
-            <div className="QuestionNumber">
-                {question} / 15
             </div>
 
         </div>
