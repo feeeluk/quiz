@@ -12,7 +12,7 @@ export function QuestionDetails({the_question}){
         <div className="QuestionLayout">
             
             <div className="QuestionWord">
-                <p>QUESTION:</p>
+                <p>QUESTION</p>
                 <p>{question} / 15</p>
             </div>
             
