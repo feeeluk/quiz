@@ -13,7 +13,7 @@
     width: 100vw;
     height: 75vh;
     grid-template-columns: minmax(150px, auto) minmax(500px, 700px) minmax(150px, auto);
-    grid-template-rows: 50px 60px 400px 200px;
+    grid-template-rows: 50px 60px 400px 160px;
     row-gap: 10px;
     column-gap: 0px;
   }
