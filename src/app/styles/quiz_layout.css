@@ -8,11 +8,9 @@
     width: 100vw;
     height: 75vh;
     grid-template-columns: minmax(150px, auto) minmax(500px, 700px) minmax(150px, auto);
-    grid-template-rows: 60px 60px 400px auto;
-    row-gap: 0px;
+    grid-template-rows: 60px 60px 400px 200px;
+    row-gap: 10px;
     column-gap: 0px;
-    border: 1px solid gray;
-    text-align: center;
   }
 
   .GridTitleBefore{
@@ -285,13 +283,14 @@
           .AnswerTopRow{
             display: flex;
             flex-direction: row;
-            justify-content: space-evenly;
+            justify-content:space-between;
+            margin-bottom: 10px;
           }
           
           .AnswerBottomRow{
             display: flex;
             flex-direction: row;
-            justify-content: space-evenly;
+            justify-content:space-between;
           }
           
           .Answer{

@@ -42,10 +42,10 @@ export default function PhoneAFriendChart(){
         labels: [`${answers[0].answer}`, `${answers[1].answer}`, `${answers[2].answer}`, `${answers[3].answer}` ],
             datasets: [
                 {
-                    label: 'Sales',
+                    label: 'Confidence %',
                     data: [answers[0].percentage, answers[1].percentage, answers[2].percentage, answers[3].percentage],
-                    borderColor: 'rgb(53, 162, 235)',
-                    backgroundColor: 'rgb(53, 162, 235, 0.4)'
+                    borderColor: 'rgb(80, 100, 200)',
+                    backgroundColor: 'rgb(80, 100, 200, 0.8)'
                 }
             ]
         }) 
@@ -58,7 +58,7 @@ export default function PhoneAFriendChart(){
                 },
                 title: {
                     display: false,
-                    text: "Revenue"
+                    text: "Answer confidence (%)"
                 }
             },
             maintainAspectRatio: false,
