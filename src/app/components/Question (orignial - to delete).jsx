@@ -1,10 +1,10 @@
 "use client"
 
+import Image from "next/image"
 import { useState } from "react"
 import { useEffect } from "react"
 import { useContext } from "react"
 import { useRouter } from "next/navigation"
-import Image from "next/image"
 import { useUser } from "@clerk/nextjs"
 import { totalScore } from "@/app/utils/context"
 import { currentQuestion } from "@/app/utils/context"
