@@ -45,19 +45,18 @@
           .QuestionLayout{
             border: 1px solid white;
             width: 100%;
-            padding: 4px;
+            padding: 5px;
             border-radius: 5px;
             display: flex;
             flex-direction: row;
-            align-items:center;
             justify-content:space-between;
+            align-items:center;
           }
 
           .QuestionWord{
             text-align: center;
             display: inline-block;
-            padding-left: 5px;
-            min-width: 100px;
+            min-width: 60px;
             font-weight: 600;
           }
           
@@ -65,8 +64,8 @@
             text-align: left;
             display: inline-block;
             padding-left: 10px;
-            padding-right: 5px;
             width: 100%;
+            font-size: 12px;
           }
 
 
@@ -116,8 +115,8 @@
             height: 100%;
             font-size: 11px;
             font-weight: 600;
-            color:darkslategray;
-            background-color:darkgray;
+            color: inherit;
+            background-color:rgb(21, 63, 20);
           }
           
           .Answer button:hover{
@@ -150,12 +149,13 @@
             height: 30px;
             color: inherit;
             font-family: inherit;
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 300;
+            border-radius: 5px;
           }
           
           .Available{
-            background-color: rgba(151, 103, 197, 0.452);
+            background-color:darkgoldenrod;
           }
           
           .Available:hover{
@@ -176,7 +176,8 @@
             color: inherit;
             font-family: inherit;
             font-size: 11px;
-            background-color: rgba(151, 103, 197, 0.452);
+            background-color: darkgoldenrod;
+            border-radius: 5px;
           }
           
           .Quit:hover{
@@ -191,22 +192,16 @@
     grid-column-end: 2;
     grid-row-start: 5;
     grid-row-end: 6;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
   }         
   
           .QuizProgress{
-            width: 100%;
             height: 120px;
             display: flex;
             flex-direction: column;
             flex-wrap: wrap;
-            /* align-content: space-between; */
           }
 
-          .QuizProgress h5{
-            max-width: 240px;
+          .QuizProgressRound{
             border: solid 1px darkgray;
             border-radius: 5px;
             margin-top: 0px;
@@ -218,6 +213,11 @@
             font-weight: 300;
           }
 
+          .QuizProgressRound:nth-child(6), .QuizProgressRound:nth-child(7), .QuizProgressRound:nth-child(8), .QuizProgressRound:nth-child(9),.QuizProgressRound:nth-child(10){
+            margin-left: 5px;
+            margin-right: 5px;
+          }
+
           .Win{
             background-color:darkgreen;
           }
@@ -227,7 +227,7 @@
           }
 
           .CurrentRound{
-            box-shadow: 0 0 10px 1.5px #f701ff;
+            box-shadow: 0 0 5px 1.5px #f701ff;
           }
 
   /* Question -Image */
@@ -408,7 +408,7 @@
               margin-right: 5%;
             }
 
-            .QuizProgress h5{
+            .QuizProgressRound{
             border: solid 1px darkgray;
             border-radius: 5px;
             margin-top: 0PX;
