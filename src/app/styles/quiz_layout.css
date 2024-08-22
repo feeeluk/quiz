@@ -14,7 +14,7 @@
     display:grid;
     width: 100vw;
     grid-template-columns: 90vw;
-    grid-template-rows: 40px 50px auto auto auto;
+    grid-template-rows: 40px 50px auto auto auto auto;
     row-gap: 10px;
     column-gap: 0px;
   }
@@ -30,7 +30,7 @@
   }
 
 
-  /* Question details */
+  /* Question - Details */
   /* ////////////////////////////////////////////////////////////// */
   .Question{
     grid-column-start: 1;
@@ -70,7 +70,7 @@
           }
 
 
-  /* Question answers */
+  /* Question - Answers */
   /* ////////////////////////////////////////////////////////////// */
   .Answers{
     grid-column-start: 1;
@@ -114,7 +114,7 @@
             border: none;
             width: 100%;
             height: 100%;
-            font-size: 14px;
+            font-size: 11px;
             font-weight: 600;
             color:darkslategray;
             background-color:darkgray;
@@ -137,22 +137,50 @@
       justify-content: center;
   }
 
-
-  /* Question image */
-  /* ////////////////////////////////////////////////////////////// */
-  .Image{
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start: 5;
-    grid-row-end: 6;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
-          .QuestionImageContainer img{
+          .LifelineOptions{
+            display: flex;
+            flex-direction: row;
+            justify-content:space-between;
+            align-items: center;
             width: 100%;
-            height: 50%;
-            object-fit: cover;
+          }
+          
+          .Lifeline{
+            width: 25%;
+            height: 30px;
+            color: inherit;
+            font-family: inherit;
+            font-size: 11px;
+            font-weight: 300;
+          }
+          
+          .Available{
+            background-color: rgba(151, 103, 197, 0.452);
+          }
+          
+          .Available:hover{
+            cursor: pointer;
+          }
+          
+          .Unavailable{
+            background-color:dimgrey;
+          }
+          
+          .Unavailable:hover{
+            cursor:not-allowed;
+          }
+          
+          .Quit{
+            width: 20%;
+            height: 30px;
+            color: inherit;
+            font-family: inherit;
+            font-size: 11px;
+            background-color: rgba(151, 103, 197, 0.452);
+          }
+          
+          .Quit:hover{
+            cursor: pointer;
           }
 
 
@@ -161,8 +189,8 @@
   .Progress{
     grid-column-start: 1;
     grid-column-end: 2;
-    grid-row-start: 6;
-    grid-row-end: 7;
+    grid-row-start: 5;
+    grid-row-end: 6;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -170,15 +198,15 @@
   
           .QuizProgress{
             width: 100%;
-            height: 130px;
+            height: 120px;
             display: flex;
             flex-direction: column;
             flex-wrap: wrap;
-            align-items: center;
+            /* align-content: space-between; */
           }
 
           .QuizProgress h5{
-            min-width: 100px;
+            max-width: 240px;
             border: solid 1px darkgray;
             border-radius: 5px;
             margin-top: 0px;
@@ -200,6 +228,72 @@
 
           .CurrentRound{
             box-shadow: 0 0 10px 1.5px #f701ff;
+          }
+
+  /* Question -Image */
+  /* ////////////////////////////////////////////////////////////// */
+  .Image{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 6;
+    grid-row-end: 7;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+          
+          .QuestionImageContainer{
+            position: relative;
+          }
+          
+          .QuestionImageContainer img{
+            width: 100%;
+            object-fit: cover;
+          }
+
+          #AskTheAudienceWindow{  
+            z-index: 1;
+            color: black;
+            position: absolute;
+            top: 2%;
+            left: 2%;
+            padding: 2%;
+            background-color: rgba(255, 255, 255, 0.9);
+            width: 96%;
+            border-radius: 5px;
+            visibility: hidden;
+          }
+      
+          #PhoneAFriendWindow{
+            z-index: 1;
+            color: black;
+            position: absolute;
+            top: 2%;
+            left: 2%;
+            padding: 2%;
+            background-color: rgba(255, 255, 255, 0.9);
+            width: 96%;
+            border-radius: 5px;
+            visibility: hidden;
+          }
+      
+          .LifelineWindow .FirstRow{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 15px;
+          } */
+      
+          .LifelineWindow .Title {
+            display: inline;
+            font-weight: 700;
+          }
+
+          .LifelineWindow .Close, button{
+            display: inline;
+            padding-left: 3px;
+            padding-top: 1px;
+            padding-right: 2px;
           }
 }
 
@@ -248,7 +342,7 @@
       }
 
 
-      /* Question details */
+      /* Question - Details */
       /* ////////////////////////////////////////////////////////////// */
       .Question{
         grid-column-start: 2;
@@ -338,7 +432,7 @@
             }
 
 
-      /* Question image */
+      /* Question - Image */
       /* ////////////////////////////////////////////////////////////// */
       .Image{
         grid-column-start: 2;
@@ -426,7 +520,7 @@
         justify-content: left;
       }
 
-              .QuizOptions{
+              .LifelineOptions{
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -473,7 +567,7 @@
               }
 
 
-      /* Question answers */
+      /* Question - Answers */
       /* ////////////////////////////////////////////////////////////// */
       .Answers{
         grid-column-start: 2;

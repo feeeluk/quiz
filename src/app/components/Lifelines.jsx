@@ -158,7 +158,7 @@ export function Lifelines({quizID, answer_1, answer_2, answer_3, answer_4, final
     return(
         <>  
 
-            <div className="QuizOptions">
+            <div className="LifelineOptions">
 
                 <button id="AskTheAudienceButton" className="Lifeline Available" onClick={ () => {handleAskTheAudience()}}>Ask the audience</button>
 
