@@ -45,6 +45,7 @@ export function Lifelines({quizID, answer_1, answer_2, answer_3, answer_4, final
         setAskAudienceData(askTheAudienceAnswers())
         document.getElementById("AskTheAudienceWindow").style.visibility = "visible"
         document.getElementById("AskTheAudienceButton").className = "Lifeline Unavailable"
+        document.getElementById("AskTheAudienceButton").disabled = true
     }
 
     function askTheAudienceAnswers(){
@@ -82,6 +83,7 @@ export function Lifelines({quizID, answer_1, answer_2, answer_3, answer_4, final
         document.getElementById(`${fiftyFiftyArray[0]}`).className = "QuestionLayout Answer Hide"
         document.getElementById(`${fiftyFiftyArray[1]}`).className = "QuestionLayout Answer Hide"
         document.getElementById("FiftyFiftyButton").className = "Lifeline Unavailable"
+        document.getElementById("FiftyFiftyButton").disabled = true
     }
 
     function fiftyFiftyAnswers(){
@@ -98,6 +100,7 @@ export function Lifelines({quizID, answer_1, answer_2, answer_3, answer_4, final
         setPhoneFriendData(phoneAFriendAnswers)
         document.getElementById("PhoneAFriendWindow").style.visibility = "visible"
         document.getElementById("PhoneAFriendButton").className = "Lifeline Unavailable"
+        document.getElementById("PhoneAFriendButton").disabled = true
     }
 
     function phoneAFriendAnswers(){
