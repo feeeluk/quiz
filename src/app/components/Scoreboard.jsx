@@ -27,6 +27,7 @@ export function Scoreboard({roundDetails, currentRound}){
                     if(item.question_number == question-1){current = "CurrentRound"}
 
                     return(
+                        
                         <div key={item.question_number}>
                             
                             <h5 key={item.question_number} className={`${win} ${checkpoint} ${current}`}>Round {item.question_number}: {value * item.question_number}pts</h5>

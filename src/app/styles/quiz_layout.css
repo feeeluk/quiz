@@ -70,13 +70,71 @@
           }
 
 
+  /* Question answers */
+  /* ////////////////////////////////////////////////////////////// */
+  .Answers{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 4;
+  }
+
+          .AnswerBox{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+          }
+          
+          .AnswerTopRow{
+            display: flex;
+            flex-direction: row;
+            justify-content:space-between;
+            margin-bottom: 5px;
+          }
+          
+          .AnswerBottomRow{
+            display: flex;
+            flex-direction: row;
+            justify-content:space-between;
+          }
+          
+          .Answer{
+            width: 49.5%;
+            height: 30px;
+            text-align: center;
+            padding: 0px;
+          }
+          
+          .Hide{
+            visibility: hidden;
+          }
+          
+          .Answer button{
+            background: none;
+            border: none;
+            width: 100%;
+            height: 100%;
+            font-size: 14px;
+            font-weight: 600;
+            color:darkslategray;
+            background-color:darkgray;
+          }
+          
+          .Answer button:hover{
+            cursor: pointer;
+          }
+
+
   /* Lifelines */
   /* ////////////////////////////////////////////////////////////// */
   .Lifelines{
       grid-column-start: 1;
       grid-column-end: 2;
-      grid-row-start: 3;
-      grid-row-end: 4;
+      grid-row-start: 4;
+      grid-row-end: 5;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
   }
 
 
@@ -85,20 +143,17 @@
   .Image{
     grid-column-start: 1;
     grid-column-end: 2;
-    grid-row-start: 4;
-    grid-row-end: 5;
-    overflow: hidden;
-  }
-
-
-  /* Question answers */
-  /* ////////////////////////////////////////////////////////////// */
-  .Answers{
-    grid-column-start: 1;
-    grid-column-end: 2;
     grid-row-start: 5;
     grid-row-end: 6;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
   }
+          .QuestionImageContainer img{
+            width: 100%;
+            height: 50%;
+            object-fit: cover;
+          }
 
 
   /* Leaderboard / Progress */
@@ -108,11 +163,48 @@
     grid-column-end: 2;
     grid-row-start: 6;
     grid-row-end: 7;
-  }          
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }         
+  
+          .QuizProgress{
+            width: 100%;
+            height: 130px;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-items: center;
+          }
+
+          .QuizProgress h5{
+            min-width: 100px;
+            border: solid 1px darkgray;
+            border-radius: 5px;
+            margin-top: 0px;
+            margin-bottom: 5px;
+            padding: 2px;
+            text-align: center;
+            font-size: 10px;
+            font-family: inherit;
+            font-weight: 300;
+          }
+
+          .Win{
+            background-color:darkgreen;
+          }
+
+          .Checkpoint{
+            background-color: chocolate;
+          }
+
+          .CurrentRound{
+            box-shadow: 0 0 10px 1.5px #f701ff;
+          }
 }
 
-/* **************************************************************************** */
-/* **************************************************************************** */
+/* ******************************************************************************************************************************************************** */
+/* ******************************************************************************************************************************************************** */
 /* Screens larger than 801px */
 @media screen and (min-width: 801px) {
   .QuizLayout{
@@ -258,11 +350,16 @@
 
           .QuestionImageContainer{
             position: relative;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
           }
-      
-          /* .QuestionImageContainer image{
+          
+          .QuestionImageContainer img{
+            width: 100%;
+            height: 400px;
             object-fit: cover;
-          } */
+          }
       
           #AskTheAudienceWindow{  
             z-index: 2;
@@ -405,7 +502,7 @@
               }
               
               .Answer{
-                width: 49%;
+                width: 49.5%;
                 height: 50px;
                 text-align: center;
                 padding: 0px;
@@ -420,7 +517,8 @@
                 border: none;
                 width: 100%;
                 height: 100%;
-                color: inherit;
+                color: darkslategray;
+                font-weight: 600;
                 font-size: 18px;
                 background-color:darkgray;
               }
