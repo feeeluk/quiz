@@ -60,7 +60,8 @@ export default async function Home({searchParams}){
     categories = JSON.stringify(categories)
 
     return(
-        <>
+        <div className="StandardLayout">
+
             <div className="Title">
                 <h1>Home</h1>
             </div>
@@ -92,7 +93,7 @@ export default async function Home({searchParams}){
                 
             </div>
             
-        </>
+        </div>
         
     )
 }

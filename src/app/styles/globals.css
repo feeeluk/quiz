@@ -1,214 +1,181 @@
-@media screen and (max-width: 500px) {
-  *{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-  }
+/* **************************************************************************** */
+/* Relevant to all pages regardless of media type or layout type */
+/* **************************************************************************** */
 
-  body{
-    color: white;
-    background-color: purple;
-    /* background: rgb(22,17,98);
-    background: radial-gradient(circle, rgba(22,17,98,1) 0%, rgba(30,5,145,1) 47%, rgba(61,80,221,1) 100%); */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
 
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  /* NavBar */
-  /* *************************************** */
-
-  .Navbar, .Footer{
-    width: 100vw;
-    background-color: purple;
-    /* background: rgb(22,17,98);
-    background: radial-gradient(circle, rgba(22,17,98,1) 0%, rgba(30,5,145,1) 47%, rgba(61,80,221,1) 100%); */
-  }
-
-  .Navbar{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-bottom: 5px;
-    border-bottom: 3px outset #5877E3;
-  }
-
-  .LogoContainer{
-    padding-top: 5px;
-  }
-
-  .LinksBar{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    visibility:visible
-  }
-
-  .LinksBar button{
-    background: none;
-    border: none;
-    color: inherit;
-    font-family: inherit;
-    font-size: 16px;
-  }
-
-  .LinksBar button:hover{
-    cursor: pointer;
-  }
-
-  /* PAGE */
-  /* *************************************** */
-
-  .Page{
-    display: flex;
-    flex-direction: column;
-    max-width: 500px;
-  }
-
-  .Title{
-    margin-bottom: 10px;
-    text-align: center;
-  }
-
-  .PageMessage{
-    margin-bottom: 10px;
-    color: orange;
-    font-weight: 600;
-    text-align: center;
-  }
-  /* FOOTER */
-  /* *************************************** */
-
-  .Footer {
-    border-top: 3px outset #5877E3;
-    padding-top: 10px;
-    padding-bottom: 15px;
-    text-align: center;
-    font-family: inherit;
-    font-size: 12px;
-  }
-
-        /* HOMEPAGE */
-        /* ************************************************ */
-        
-        .FilterSortBar{
-          display: inline;
-          margin-bottom: 10px;
-          padding-left: 5px;
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-          width: 100%;
-          font-size: 12px;
-        }
-
-        .FilterSortBar select{
-          font-size: 12px;
-        }
-
-        .AllQuizzes{
-          display: flex;
-          flex-direction: row;
-        }
-
-        .QuizCards{
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-        }
-
-        .QuizCardComponent{
-          width: 200px;
-          padding: 5px;
-          margin: 5px;
-          border-radius: 5px;
-          background-color: rgba(44, 75, 177, 0.801);
-        }
-
-        /* LEADERBOARD */
-        /* ************************************************ */
-
-        .Leaderboard button {
-          display: inline;
-        }
-
-        .Leaderboard h5{
-          margin-bottom: 3px;
-        }
-
-        /* LOSE */
-        /* ************************************************ */
-
-        .Result{
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        .Result p{
-          text-align: center;
-          margin-top: 15px;
-        }
+/* Top level */
+/* *************************************** */
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-@media screen and (min-width: 501px) {
+body{
+  color: white;
+  background: rgb(22,17,98);
+  background: radial-gradient(circle, rgba(22,17,98,1) 0%, rgba(30,5,145,1) 47%, rgba(61,80,221,1) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  *{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-  }
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+/* NavBar */
+/* *************************************** */
+.Navbar, .Footer{
+  width: 100vw;
+  background: rgb(22,17,98);
+  background: radial-gradient(circle, rgba(22,17,98,1) 0%, rgba(30,5,145,1) 47%, rgba(61,80,221,1) 100%);
+}
+
+.Navbar{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 5px;
+  border-bottom: 3px outset #5877E3;
+}
+
+.LogoContainer{
+  padding-top: 5px;
+}
+
+.LinksBar{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  visibility:visible
+}
+
+.LinksBar button:hover{
+  cursor: pointer;
+}
+
+
+/* PAGE */
+/* *************************************** */
+.PageMessage{
+  margin-bottom: 10px;
+  color: orange;
+  font-weight: 600;
+  text-align: center;
+}
+
+
+/* FOOTER */
+/* *************************************** */
+.Footer {
+  height: 40px;
+  border-top: 3px outset #5877E3;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  text-align: center;
+  font-family: inherit;
+  position: fixed;
+  bottom: 0;
+  font-size: 10px;
+}
+
+
+/* **************************************************************************** */
+/* Screen size of 800px or less - ANY LAYOUT */
+/* **************************************************************************** */
+@media screen and (max-width: 800px) {
 
   body{
-    color: white;
-    background: rgb(22,17,98);
-    background: radial-gradient(circle, rgba(22,17,98,1) 0%, rgba(30,5,145,1) 47%, rgba(61,80,221,1) 100%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    font-size: 10px;
   }
 
   a {
-    color: inherit;
-    text-decoration: none;
+    font-size: 12px;
   }
 
-  /* NavBar */
+  h1{
+    padding: 5px;
+    font-size: 21px;
+  }
+
+  h2{
+    font-size: 18px;
+  }
+
+  h3{
+    font-size: 16px;
+  }
+
+  h4{
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+  h5{
+    font-size: 12px;
+    margin-top: 5px;
+  }
+
+  .LinksBar button{
+    background: none;
+    border: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: 12px;
+  }
+
+  /* PAGE */
   /* *************************************** */
 
-  .Navbar, .Footer{
-    width: 100vw;
-    background: rgb(22,17,98);
-    background: radial-gradient(circle, rgba(22,17,98,1) 0%, rgba(30,5,145,1) 47%, rgba(61,80,221,1) 100%);
-  }
-
-  .Navbar{
+  .Page{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding-bottom: 5px;
-    border-bottom: 3px outset #5877E3;
+    max-width: 450px;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-bottom: 15px;
   }
 
-  .LogoContainer{
-    padding-top: 5px;
+  .Title{
+    margin-top: 5px;
+    margin-bottom: 5px;
   }
 
-  .LinksBar{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    visibility:visible
+}
+
+/* **************************************************************************** */
+/* Screen size of 801px or more - ANY LAYOUT */
+/* **************************************************************************** */
+@media screen and (min-width: 801px) {
+
+  h1{
+    padding: 10px;
+    /* padding-bottom: 5px; */
+  }
+
+  /* h2{
+
+  } */
+
+  /* h3{
+
+  } */
+
+  h4{
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  h5{
+    font-size: 12px;
+    margin-top: 5px;
+    margin-bottom: 5px;
   }
 
   .LinksBar button{
@@ -219,102 +186,18 @@
     font-size: 16px;
   }
 
-  .LinksBar button:hover{
-    cursor: pointer;
-  }
-
   /* PAGE */
   /* *************************************** */
 
   .Page{
     display: flex;
     flex-direction: column;
-    max-width: 900px;
+    width: 100vw;
+    align-items: center;
   }
 
   .Title{
     margin-bottom: 10px;
     text-align: center;
   }
-
-  .PageMessage{
-    margin-bottom: 10px;
-    color: orange;
-    font-weight: 600;
-    text-align: center;
-  }
-  /* FOOTER */
-  /* *************************************** */
-
-  .Footer {
-    border-top: 3px outset #5877E3;
-    padding-top: 10px;
-    padding-bottom: 15px;
-    text-align: center;
-    font-family: inherit;
-    font-size: 12px;
-  }
-
-        /* HOMEPAGE */
-        /* ************************************************ */
-        
-        .FilterSortBar{
-          display: inline;
-          margin-bottom: 10px;
-          padding-left: 5px;
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-          width: 100%;
-          font-size: 12px;
-        }
-
-        .FilterSortBar select{
-          font-size: 12px;
-        }
-
-        .AllQuizzes{
-          display: flex;
-          flex-direction: row;
-        }
-
-        .QuizCards{
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-        }
-
-        .QuizCardComponent{
-          width: 200px;
-          padding: 5px;
-          margin: 5px;
-          border-radius: 5px;
-          background-color: rgba(44, 75, 177, 0.801);
-        }
-
-        /* LEADERBOARD */
-        /* ************************************************ */
-
-        .Leaderboard button {
-          display: inline;
-        }
-
-        .Leaderboard h5{
-          margin-bottom: 3px;
-        }
-
-        /* LOSE */
-        /* ************************************************ */
-
-        .Result{
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        .Result p{
-          text-align: center;
-          margin-top: 15px;
-        }
 }
