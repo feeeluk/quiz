@@ -1,7 +1,114 @@
+.QuizLayout{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+
 /* **************************************************************************** */
 /* Screens smaller than 800px */
 /* **************************************************************************** */
 @media screen and (max-width: 800px) {
+
+  .QuizLayout{
+    display:grid;
+    width: 100vw;
+    grid-template-columns: 90vw;
+    grid-template-rows: 40px 50px auto auto auto;
+    row-gap: 10px;
+    column-gap: 0px;
+  }
+
+  .GridTitle{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+
+  /* Question details */
+  /* ////////////////////////////////////////////////////////////// */
+  .Question{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    display: flex;
+    flex-direction: row;
+    background-color:darkslategray;
+  }
+
+          .QuestionLayout{
+            border: 1px solid white;
+            width: 100%;
+            padding: 4px;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: row;
+            align-items:center;
+            justify-content:space-between;
+          }
+
+          .QuestionWord{
+            text-align: center;
+            display: inline-block;
+            padding-left: 5px;
+            min-width: 100px;
+            font-weight: 600;
+          }
+          
+          .TheQuestion{
+            text-align: left;
+            display: inline-block;
+            padding-left: 10px;
+            padding-right: 5px;
+            width: 100%;
+          }
+
+
+  /* Lifelines */
+  /* ////////////////////////////////////////////////////////////// */
+  .Lifelines{
+      grid-column-start: 1;
+      grid-column-end: 2;
+      grid-row-start: 3;
+      grid-row-end: 4;
+  }
+
+
+  /* Question image */
+  /* ////////////////////////////////////////////////////////////// */
+  .Image{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    overflow: hidden;
+  }
+
+
+  /* Question answers */
+  /* ////////////////////////////////////////////////////////////// */
+  .Answers{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 5;
+    grid-row-end: 6;
+  }
+
+
+  /* Leaderboard / Progress */
+  /* ////////////////////////////////////////////////////////////// */
+  .Progress{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 6;
+    grid-row-end: 7;
+  }          
 }
 
 /* **************************************************************************** */
@@ -11,13 +118,13 @@
   .QuizLayout{
     display:grid;
     width: 100vw;
-    height: 75vh;
     grid-template-columns: minmax(150px, auto) minmax(500px, 700px) minmax(150px, auto);
     grid-template-rows: 50px 60px 400px 160px;
     row-gap: 10px;
     column-gap: 0px;
   }
 
+      /* EMPTY */
       .GridTitleBefore{
         grid-column-start: 1;
         grid-column-end: 2;
@@ -32,6 +139,7 @@
         grid-row-end: 2;
       }
 
+      /* EMPTY */
       .GridTitleAfter{
         grid-column-start: 3;
         grid-column-end: 4;

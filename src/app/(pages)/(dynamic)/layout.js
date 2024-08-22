@@ -16,9 +16,7 @@ export default function RegularLayout({ children }) {
                             <FiftyFiftyProvider>
                                 <PhoneAFriendProvider>
                                     <PhoneAFriendDataProvider>
-                                        <div className="DynamicPage">
                                             {children}
-                                        </div>
                                     </PhoneAFriendDataProvider>
                                 </PhoneAFriendProvider>
                             </FiftyFiftyProvider>
