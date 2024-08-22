@@ -10,17 +10,14 @@ export function QuizFilterSort({quizzes, categories}){
     const categoryNames = JSON.parse(categories)
 
     function handleFilterByCategory(){
-        //outer.push(`/home?filterByCategory='${event.target.value}'`)
         document.getElementById('filterSortForm').requestSubmit()
     }
     
     function handleSortBy(event){
-        //router.push(`/home?sortBy='${event.target.value}'`)
         document.getElementById('filterSortForm').requestSubmit()
     }
 
     function handleOrderBy(event){
-        //router.push(`/home?orderBy='${event.target.value}'`)
         document.getElementById('filterSortForm').requestSubmit()
     }
 
@@ -29,8 +26,7 @@ export function QuizFilterSort({quizzes, categories}){
         const categoryValue = formData.get("filterByCategory")
         const sortValue = formData.get("sortBy")
         const orderValue = formData.get("orderBy")
-        router.push(`/home?filterByCategory=${categoryValue}&sortBy=${sortValue}&orderBy=${orderValue}`)
-
+        router.push(`/?filterByCategory=${categoryValue}&sortBy=${sortValue}&orderBy=${orderValue}`)
     }
 
     return(
