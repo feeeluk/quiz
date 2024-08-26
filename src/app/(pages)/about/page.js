@@ -4,7 +4,7 @@ export default function About(){
         <div className="StandardLayout">
 
             <div className="Title">
-                <h1>About</h1>
+                <h1>About - test works in new folder</h1>
             </div>
 
             <div>
