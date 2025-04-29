@@ -8,14 +8,14 @@ import { ClerkProvider} from '@clerk/nextjs'
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Peasant V2",
-  description: "Who Wants To Be A Peasant? version 2",
+  title: "Quiz",
+  description: "A re-write of my final Tech Educators project using Next.js",
   openGraph:{
-    title: "Who Wants To Be A Peasant? version 2",
-    description: "A re-write of my final Tech Educators project using Next.js and Postgre",
+    title: "Quiz",
+    description: "A re-write of my final Tech Educators project using Next.js",
     type: "website",
-    url: "https://.peasant.philhenning.co.uk/",
-    images: ["https://philhenning.co.uk/Projects/peasant_screenshot.png"], // add an appropriate image to your public folder 
+    url: "https://peasant.philhenning.online/",
+    images: ["https://philhenning.online/Projects/peasant_screenshot.png"], // add an appropriate image to your public folder 
   },
 };
 
